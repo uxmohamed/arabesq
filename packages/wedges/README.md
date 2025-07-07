@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" src="apps/docs/public/images/banner.webp" alt="Arabesq Design System" />
+  <img width="100%" src="https://pbs.twimg.com/media/GR5B3dVXUAAmNYU?format=png&name=900x900" alt="Arabesq Design System" />
 </p>
 
 # Arabesq
