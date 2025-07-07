@@ -1074,11 +1074,13 @@ export function Example() {
     component: lazy(() => import("@/examples/button/preview.tsx")),
     code: `import { PlusIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <Button after={<PlusIcon />} before={<PlusIcon />}>
-      Button
+      {t("welcome")}
     </Button>
   );
 }

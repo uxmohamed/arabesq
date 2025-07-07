@@ -1,41 +1,37 @@
 <p align="center">
-  <a href="https://lemonsqueezy.com/wedges">
-      <img width="100%" src="https://github.com/lmsqueezy/wedges/blob/c47d43f8c76271381e812a357628fe3d3b076f25/apps/docs/public/images/banner.webp" alt="Wedges UI library" />
-  </a>
+  <img width="100%" src="apps/docs/public/images/banner.webp" alt="Arabesq Design System" />
 </p>
 
-# Wedges
+# Arabesq
 
-[![](https://img.shields.io/npm/v/@lemonsqueezy/wedges?style=plastic)](https://www.npmjs.com/package/@lemonsqueezy/wedges)
-[![](https://img.shields.io/npm/dw/@lemonsqueezy/wedges?style=plastic)](https://www.npmjs.com/package/@lemonsqueezy/wedges)
-
-Wedges is an ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.
-
-With Wedges, you get a range of pre-built, customizable components that are easy to use and integrate into your React projects. It also comes with full TypeScript support, ensuring type safety and developer-friendly experience.
-
-<a href="https://lemonsqueezy.com/wedges/docs"><strong>Get Started with Wedges &rarr;</strong></a>
+Arabesq is a comprehensive Arabic design system aimed at providing a complete set of tools for designing user interfaces in the Arabic language. Whether you're creating a new project or optimizing an existing one, Arabesq offers a wide range of components, patterns, and templates that streamline the design process and ensure consistency and quality across your projects. Our design system includes essential elements such as buttons, input fields, sliders, checkboxes, radio buttons, dropdowns, and more, all designed with the unique characteristics of Arabic typography and layout in mind.
 
 ## License
 
-Wedges is licensed under the [MIT License](./LICENSE).
+Arabesq is licensed under the [MIT License](./LICENSE).
 
 ## Getting Started
 
-Visit <a href="https://www.lemonsqueezy.com/wedges/docs" target="_blank">Wedges Docs</a> to get started.
+Visit the documentation in [apps/docs](./apps/docs) to get started with Arabesq.
+
+## Figma Community File
+
+You can explore and duplicate the Arabesq design system on Figma:
+
+[Arabesq Figma Community File](https://www.figma.com/community/file/1391785269302524061)
 
 ## Repository Structure
 
-This repository is organized as a monorepo (Turborepo) and is managed with <a href="https://pnpm.io" target="_blank">PNPM</a>.
+This repository is organized as a monorepo (Turborepo) and is managed with [PNPM](https://pnpm.io).
 
 ## Packages
 
-- [packages/wedges](./packages/wedges) - This is the heart of our project – the UI library itself. Here you'll find all the components, utilities, and core functionality of the Wedges UI library.
-
-- [packages/eslint-config](./packages/eslint-config/) - This package contains the ESLint configuration used by packages and apps in this monorepo.
+- [packages/wedges](./packages/wedges) - The core UI library containing all components, utilities, and core functionality of the Arabesq design system.
+- [packages/eslint-config](./packages/eslint-config/) - Shared ESLint configuration for all packages and apps in this monorepo.
 
 ## Apps
 
-- [apps/docs](./apps/docs) - Contains the Next.js documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
+- [apps/docs](./apps/docs) - The Next.js documentation site for the Arabesq design system. This is where you'll find documentation, examples, and guides for using the library.
 
 ## Development
 
@@ -54,10 +50,14 @@ pnpm dev
 
 ## Contributing
 
-Any contributions you make are greatly appreciated. If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Contributions are welcome! If you have suggestions or improvements, please fork the repo and create a pull request, or open an issue with the tag "enhancement."
 
 Please refer to the [CONTRIBUTING](./CONTRIBUTING.md) for more information.
 
-## Connect with us
+## Maintainer
 
-Follow us <a href="https://twitter.com/lmsqueezy/" target="_blank" rel="noreferrer">@lmsqueezy</a> for the latest and coolest. Let us know what you're building with Wedges!
+This project is maintained by [Hassan](https://www.hassan.design/).
+
+---
+
+*This project is maintained by the Arabesq team. If you have questions or want to connect, please open an issue or pull request on GitHub.*
