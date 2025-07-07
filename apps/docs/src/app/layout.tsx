@@ -11,6 +11,8 @@ import "@/styles/globals.css";
 
 import Fathom from "@/components/Fathom";
 import { Header } from "@/components/header/header";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import BodyWithLangDir from "@/components/BodyWithLangDir";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lemonsqueezy.com/"),
@@ -20,32 +22,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning className="scroll-smooth" lang="en">
-      <body
-        className={cn(
-          "min-h-screen-dvh font-sans antialiased",
-          displayFont.variable,
-          monoFont.variable,
-          sansFont.variable
-        )}
-      >
-        <Fathom />
-        <div className="min-h-screen-dvh flex flex-col">
-          <Providers>
-            <Header />
-
-            <div className="container relative flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-16">
-              <Sidebar />
-
-              <main className="mx-auto mt-16 flex w-full min-w-0 flex-col md:h-full">
-                {children}
-              </main>
-            </div>
-          </Providers>
-
-          <Footer />
-        </div>
-      </body>
+    <html suppressHydrationWarning className="scroll-smooth" lang="en" dir="ltr">
+      <LanguageProvider>
+        <BodyWithLangDir>
+          <Fathom />
+          <div className="min-h-screen-dvh flex flex-col">
+            <Providers>
+              <Header />
+              <div className="container relative flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-16">
+                <Sidebar />
+                <main className="mx-auto mt-16 flex w-full min-w-0 flex-col md:h-full">
+                  {children}
+                </main>
+              </div>
+            </Providers>
+            <Footer />
+          </div>
+        </BodyWithLangDir>
+      </LanguageProvider>
     </html>
   );
 }

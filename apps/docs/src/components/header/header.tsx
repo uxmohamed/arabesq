@@ -4,6 +4,7 @@ import WedgesHeader from "../WedgesHeader";
 import { Logo } from "./logo";
 import { HeaderActions } from "./navigation/header-actions";
 import { MainNav } from "./navigation/main-nav";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export async function Header() {
   const webflowData = await getWebflowData();
@@ -16,6 +17,7 @@ export async function Header() {
             <Logo />
             <MainNav webflowData={webflowData} />
             <HeaderActions />
+            <LanguageSwitcher />
           </div>
         </div>
       </header>

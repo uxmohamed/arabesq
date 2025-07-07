@@ -1,6 +1,7 @@
 import { wedgesPalette, wedgesTW } from "@lemonsqueezy/wedges";
 import type { ThemableColorScale } from "@lemonsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
 import tailwindTypography from "@tailwindcss/typography";
+const rtl = require("tailwindcss-rtl");
 import type { Config } from "tailwindcss";
 
 const primaryBlue: ThemableColorScale = {
@@ -98,7 +99,21 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui", "-apple-system"],
+        sans: [
+          "var(--font-sans)",
+          "Inter",
+          "IBM Plex Arabic",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+        ],
+        arabic: [
+          "IBM Plex Arabic",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+        ],
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular"],
         display: ["var(--font-display)", "Inter", "ui-monospace", "SFMono-Regular"],
       },
@@ -147,6 +162,7 @@ const config: Config = {
       },
     }),
     tailwindTypography,
+    rtl,
   ],
 };
 
