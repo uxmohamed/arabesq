@@ -54,9 +54,9 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 
 Please refer to the [CONTRIBUTING](./CONTRIBUTING.md) for more information.
 
-## Maintainer
+## Created by
 
-This project is maintained by [Hassan](https://www.hassan.design/).
+Created by [Hassan](https://www.hassan.design/) and [Adham Mohamed](https://adham.app/).
 
 ---
 
