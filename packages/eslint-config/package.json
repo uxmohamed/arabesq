@@ -1,0 +1,23 @@
+{
+  "name": "@wedges/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "eslint-library.cjs",
+    "eslint-nextjs.cjs",
+    "eslint-wedges.cjs"
+  ],
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.6",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
+    "eslint": "^8",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^2.0.14",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-tailwindcss": "^3.17.4"
+  }
+}
