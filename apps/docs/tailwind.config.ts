@@ -25,9 +25,8 @@ const config: Config = {
     "./src/content/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./public/docs/**/*.mdx",
-
-    // This is required in order to include Tailwind classes from Wedges.
     "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+    "../../packages/wedges/src/components/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {

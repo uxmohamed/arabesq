@@ -124,7 +124,7 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
         className={cn(alertVariants({ variant, color }), className)}
         {...otherProps}
       >
-        <AlertBefore className={cn(variant === "inline" && "pl-1")} color={color}>
+        <AlertBefore className={cn(variant === "inline" && "ps-1")} color={color}>
           {before}
         </AlertBefore>
 
@@ -148,14 +148,14 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
           </div>
 
           {after && (
-            <div className={cn(variant === "inline" && "mt-3 sm:ml-auto sm:mt-0")}>
+            <div className={cn(variant === "inline" && "mt-3 sm:ms-auto sm:mt-0")}>
               <AlertAfter>{after}</AlertAfter>
             </div>
           )}
         </div>
 
         {closable && (
-          <AlertCloseButton className={cn(variant === "inline" && "pr-1")} onClick={handleClose} />
+          <AlertCloseButton className={cn(variant === "inline" && "pe-1")} onClick={handleClose} />
         )}
       </AlertRoot>
     );

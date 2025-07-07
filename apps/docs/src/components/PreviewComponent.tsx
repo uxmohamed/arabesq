@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 
 import { LemonSqueezyLogomark } from "./icons/lemonsqueezy";
 import { PreviewCode } from "./PreviewCode";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { LanguageProvider, useLanguage } from "@/components/LanguageProvider";
 
 type PreviewComponentType = TabsElement;
 type PreviewComponentProps = TabsProps & {
@@ -24,6 +26,7 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
   ({ align, children, name, ...otherProps }, ref) => {
     const previewRef = useRef<HTMLDivElement>(null);
     const [theme, setTheme] = useState<"light" | "dark">("light");
+    const { lang, dir } = useLanguage();
 
     const Component = useMemo(() => Demos[name]?.component, [name]);
     const Preview = !Component ? NotFound : Component;
@@ -72,34 +75,40 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
         </Tabs.List>
 
         <Tabs.Content className={cn("rounded-lg", theme)} value="preview">
-          <div
-            ref={previewRef}
-            className="preview not-prose dark:bg-wg-gray-950 relative flex w-full items-center justify-center rounded-lg border border-surface-100 bg-background text-sm text-foreground shadow-wg-xs"
-          >
-            <div
-              className={cn("flex min-h-[300px] w-full items-center overflow-x-auto p-10", {
-                "items-center": align === "center",
-                "items-start": align === "start",
-                "items-end": align === "end",
-              })}
-            >
-              <div className="mx-auto block w-full min-w-fit text-center">
-                <Suspense fallback={<SuspenseFallback />}>
-                  <Preview />
-                </Suspense>
+          <LanguageProvider>
+            <PreviewContainer>
+              <div
+                ref={previewRef}
+                className="preview not-prose dark:bg-wg-gray-950 relative flex w-full items-center justify-center rounded-lg border border-surface-100 bg-background text-sm text-foreground shadow-wg-xs"
+              >
+                <div
+                  className={cn("flex min-h-[300px] w-full items-center overflow-x-auto p-10", {
+                    "items-center": align === "center",
+                    "items-start": align === "start",
+                    "items-end": align === "end",
+                  })}
+                >
+                  <div className="mx-auto block w-full min-w-fit text-center">
+                    <Suspense fallback={<SuspenseFallback />}>
+                      <Preview />
+                    </Suspense>
+                  </div>
+                </div>
+                <Button
+                  isIconOnly
+                  className="absolute right-2 top-2"
+                  size="sm"
+                  variant="transparent"
+                  onClick={toggleTheme}
+                >
+                  {theme === "light" ? <SunIcon /> : <MoonIcon />}
+                </Button>
+                <div className="absolute right-12 top-2">
+                  <LanguageSwitcher />
+                </div>
               </div>
-            </div>
-
-            <Button
-              isIconOnly
-              className="absolute right-2 top-2"
-              size="sm"
-              variant="transparent"
-              onClick={toggleTheme}
-            >
-              {theme === "light" ? <SunIcon /> : <MoonIcon />}
-            </Button>
-          </div>
+            </PreviewContainer>
+          </LanguageProvider>
         </Tabs.Content>
 
         <Tabs.Content
@@ -126,4 +135,13 @@ function SuspenseFallback() {
 
 function NotFound() {
   return <span className="text-surface-500">Unable to display component preview</span>;
+}
+
+function PreviewContainer({ children, ...props }: { children: React.ReactNode }) {
+  const { lang, dir } = useLanguage();
+  return (
+    <div lang={lang} dir={dir} {...props}>
+      {children}
+    </div>
+  );
 }
