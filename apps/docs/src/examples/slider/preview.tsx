@@ -9,7 +9,7 @@ export function Example() {
       <Slider
         after={<PlusIcon className="size-6 text-surface-300 dark:text-gray-500" />}
         before={<MinusIcon className="size-6 text-surface-300 dark:text-gray-500" />}
-        content={t("form.tooltipContent", "A tooltip is a small box that appears when hovering over a UI element, providing additional information.")}
+        content={t("form.tooltipContent")}
         defaultValue={[50]}
         description={t("form.description")}
         helperText={t("form.helperText")}
@@ -18,3 +18,5 @@ export function Example() {
     </div>
   );
 }
+
+export default Example;

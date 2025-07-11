@@ -17,27 +17,27 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />}>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
       </div>
 
@@ -52,27 +52,27 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" shape="pill">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" shape="pill">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" shape="pill">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" shape="pill">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill">
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
       </div>
     </div>

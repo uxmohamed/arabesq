@@ -31,18 +31,18 @@ export default function WedgesHeader() {
             )}
             href={siteConfig.wedgesURL}
           >
-            <h1 className="font-sans text-2xl font-medium text-white md:block">{t("header.wedges", "Wedges")}</h1>
+            <h1 className="font-sans text-2xl font-medium text-white md:block">{t("header.wedges")}</h1>
           </Link>
 
           <Navigation
-            aria-label={t("header.wedgesNav", "Wedges Nav")}
+            aria-label={t("header.wedgesNav")}
             className="-ml-3 justify-self-start md:flex md:justify-self-center"
           >
-            <Navigation.Item href={siteConfig.wedgesURL}>{t("header.react", "React")}</Navigation.Item>
-            <Navigation.Item href={siteConfig.wedgesURL + "/figma"}>{t("header.figma", "Figma")}</Navigation.Item>
+            <Navigation.Item href={siteConfig.wedgesURL}>{t("header.react")}</Navigation.Item>
+            <Navigation.Item href={siteConfig.wedgesURL + "/figma"}>{t("header.figma")}</Navigation.Item>
 
             <Navigation.Item asChild active={!pathname.includes("/components")}> 
-              <Link href="/">{t("header.docs", "Docs")}</Link>
+              <Link href="/">{t("header.docs")}</Link>
             </Navigation.Item>
 
             <Navigation.Item
@@ -50,29 +50,29 @@ export default function WedgesHeader() {
               active={pathname.includes("/components")}
               className="hidden md:inline-flex"
             >
-              <Link href="/components">{t("header.components", "Components")}</Link>
+              <Link href="/components">{t("header.components")}</Link>
             </Navigation.Item>
           </Navigation>
 
-          <Navigation aria-label={t("header.socialLinks", "Social Links")} className="hidden justify-self-end md:flex">
+          <Navigation aria-label={t("header.socialLinks")} className="hidden justify-self-end md:flex">
             <Navigation.Item
               className="px-0 md:px-0"
               href={siteConfig.github}
               rel="noreferrer"
               target="_blank"
             >
-              {t("header.github", "GitHub")}
+              {t("header.github")}
             </Navigation.Item>
           </Navigation>
 
           <Navigation
-            aria-label={t("header.mobileMenu", "Mobile Menu")}
+            aria-label={t("header.mobileMenu")}
             className="ml-auto self-center justify-self-end md:hidden"
           >
             {/* Search */}
             <Button
               isIconOnly
-              aria-label={t("header.openSearch", "Open search")}
+              aria-label={t("header.openSearch")}
               className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
               data-theme="dark"
               variant="transparent"
@@ -85,7 +85,7 @@ export default function WedgesHeader() {
             <Button
               asChild
               isIconOnly
-              aria-label={t("header.githubLink", "GitHub link")}
+              aria-label={t("header.githubLink")}
               className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
               data-theme="dark"
               variant="transparent"
@@ -98,7 +98,7 @@ export default function WedgesHeader() {
             {/* Mobile menu */}
             <Button
               isIconOnly
-              aria-label={t("header.openMenu", "Open menu")}
+              aria-label={t("header.openMenu")}
               className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
               data-theme="dark"
               variant="transparent"

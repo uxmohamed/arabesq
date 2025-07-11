@@ -9,8 +9,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   const wrapper = React.useRef<HTMLDivElement>(null);
 
   const DotIcon = ({ className }: { className?: string }) => (
@@ -21,9 +23,9 @@ export default function Example() {
 
   return (
     <div ref={wrapper} className="inline-flex max-w-[192px] flex-col gap-10">
-      <Select label="Project status" tooltip="Tooltip example" required>
+      <Select label={t("select.projectStatus")} tooltip={t("form.tooltip")} required>
         <SelectTrigger className="min-w-[192px]">
-          <SelectValue placeholder="Select status" />
+          <SelectValue placeholder={t("select.selectStatus")} />
           <SelectIcon />
         </SelectTrigger>
 
@@ -33,35 +35,35 @@ export default function Example() {
               <SelectItem value="pending">
                 <div className="flex items-center gap-1">
                   <DotIcon className="-ms-1 size-6 text-wg-red" />
-                  <span>Pending</span>
+                  <span>{t("select.pending")}</span>
                 </div>
               </SelectItem>
 
               <SelectItem value="in-progress">
                 <div className="flex items-center gap-1">
                   <DotIcon className="-ms-1 size-6 text-wg-yellow" />
-                  <span>In Progress</span>
+                  <span>{t("select.inProgress")}</span>
                 </div>
               </SelectItem>
 
               <SelectItem value="in-review">
                 <div className="flex items-center gap-1">
                   <DotIcon className="-ms-1 size-6 text-wg-blue" />
-                  <span>In Review</span>
+                  <span>{t("select.inReview")}</span>
                 </div>
               </SelectItem>
 
               <SelectItem value="complete">
                 <div className="flex items-center gap-1">
                   <DotIcon className="-ms-1 size-6 text-wg-green" />
-                  <span>Complete</span>
+                  <span>{t("select.complete")}</span>
                 </div>
               </SelectItem>
 
               <SelectItem value="archived">
                 <div className="flex items-center gap-1">
                   <DotIcon className="-ms-1 size-6 text-wg-gray-300" />
-                  <span>Archived</span>
+                  <span>{t("select.archived")}</span>
                 </div>
               </SelectItem>
             </SelectGroup>

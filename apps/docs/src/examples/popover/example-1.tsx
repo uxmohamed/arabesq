@@ -33,11 +33,11 @@ export default function Example() {
           {container ? (
             <Popover.Portal container={container}>
               <Popover.Content align="end" className="min-w-[130px]">
-                <CheckboxGroup label={t("popover.groupLabel", "Group Label")}>
-                  <CheckboxGroup.Item label={t("popover.option1", "Option 1")} />
-                  <CheckboxGroup.Item label={t("popover.option2", "Option 2")} />
-                  <CheckboxGroup.Item label={t("popover.option3", "Option 3")} />
-                  <CheckboxGroup.Item label={t("popover.option4", "Option 4")} />
+                <CheckboxGroup label={t("popover.groupLabel")}>
+                  <CheckboxGroup.Item label={t("popover.option1")} />
+                  <CheckboxGroup.Item label={t("popover.option2")} />
+                  <CheckboxGroup.Item label={t("popover.option3")} />
+                  <CheckboxGroup.Item label={t("popover.option4")} />
                 </CheckboxGroup>
               </Popover.Content>
             </Popover.Portal>

@@ -68,11 +68,11 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
       >
         <Tabs.List>
           <Tabs.Trigger before={<EyeIcon />} value="preview">
-            {t("preview.previewTab", "Preview")}
+            {t("preview.previewTab")}
           </Tabs.Trigger>
 
           <Tabs.Trigger before={<CodeIcon />} value="code">
-            {t("preview.codeTab", "Code")}
+            {t("preview.codeTab")}
           </Tabs.Trigger>
         </Tabs.List>
 
@@ -131,14 +131,14 @@ function SuspenseFallback() {
   return (
     <div className="flex flex-col items-center gap-4 text-xs leading-6 text-surface-500">
       <LemonSqueezyLogomark className="fill-surface-200" fill="none" loading={true} />
-      <span>{t("preview.loadingPreview", "Loading preview")}</span>
+      <span>{t("preview.loadingPreview")}</span>
     </div>
   );
 }
 
 function NotFound() {
   const { t } = useTranslation();
-  return <span className="text-surface-500">{t("preview.unableToDisplay", "Unable to display component preview")}</span>;
+  return <span className="text-surface-500">{t("preview.unableToDisplay")}</span>;
 }
 
 function PreviewContainer({ children, ...props }: { children: React.ReactNode }) {

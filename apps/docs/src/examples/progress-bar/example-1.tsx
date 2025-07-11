@@ -1,26 +1,29 @@
 import { SpinnerIcon } from "@iconicicons/react";
 import { ProgressBar } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="inline-flex w-full max-w-[400px] flex-col gap-y-12">
       <ProgressBar
         afterIndicator={<SpinnerIcon className="animate-spin" />}
-        helperText="Helper text"
+        helperText={t("progressBar.helperText")}
         indicator="50%"
-        label="Label"
-        tooltip="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        label={t("progressBar.label")}
+        tooltip={t("progressBar.tooltip")}
         value={50}
       />
 
-      <ProgressBar helperText="Helper text" value={50} />
+      <ProgressBar helperText={t("progressBar.helperText")}
+        value={50} />
 
       <ProgressBar
         afterIndicator={<SpinnerIcon className="animate-spin" />}
         variant="inline"
         indicator="50%"
-        label="Label"
-        tooltip="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        label={t("progressBar.label")}
+        tooltip={t("progressBar.tooltip")}
         value={50}
       />
     </div>

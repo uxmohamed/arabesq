@@ -32,7 +32,7 @@ export function EditPageLink() {
         variant="link"
       >
         <Link href={editURL} rel="noopener noreferrer" target="_blank">
-          <span>{t("editPage.editThisPage", "Edit this page")}</span>
+          <span>{t("editPage.editThisPage")}</span>
         </Link>
       </Button>
 
@@ -42,7 +42,7 @@ export function EditPageLink() {
         variant="link"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
-        {t("editPage.backToTop", "Back to top")}
+        {t("editPage.backToTop")}
       </Button>
     </div>
   );

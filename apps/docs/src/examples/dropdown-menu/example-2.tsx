@@ -13,8 +13,10 @@ import {
   UserIcon,
 } from "@iconicicons/react";
 import { Avatar, DropdownMenu, Switch } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   const [darkMode, setDarkMode] = useState(false);
   return (
     <div className="flex items-center justify-center">
@@ -28,7 +30,7 @@ export default function Example() {
             />
 
             <span className="ms-2 flex flex-col">
-              <span className="font-medium">John Doe</span>
+              <span className="font-medium">{t("dropdownMenu.johnDoe")}</span>
             </span>
 
             <ChevronDownIcon className="trigger-icon h-5 w-5 text-surface-400" />
@@ -39,22 +41,22 @@ export default function Example() {
           <DropdownMenu.Group>
             <DropdownMenu.Item>
               <UserIcon />
-              <span>Account</span>
+              <span>{t("dropdownMenu.account")}</span>
             </DropdownMenu.Item>
 
             <DropdownMenu.Item>
               <SettingsIcon />
-              <span>Settings</span>
+              <span>{t("dropdownMenu.settings")}</span>
             </DropdownMenu.Item>
 
             <DropdownMenu.Item>
               <LockIcon />
-              <span>Privacy</span>
+              <span>{t("dropdownMenu.privacy")}</span>
             </DropdownMenu.Item>
 
             <DropdownMenu.Item>
               <BellIcon />
-              <span>Notifications</span>
+              <span>{t("dropdownMenu.notifications")}</span>
             </DropdownMenu.Item>
           </DropdownMenu.Group>
 
@@ -63,12 +65,12 @@ export default function Example() {
           <DropdownMenu.Group>
             <DropdownMenu.Item>
               <BookIcon />
-              <span>Help Guide</span>
+              <span>{t("dropdownMenu.helpGuide")}</span>
             </DropdownMenu.Item>
 
             <DropdownMenu.Item>
               <HelpCircleIcon />
-              <span>Help Center</span>
+              <span>{t("dropdownMenu.helpCenter")}</span>
             </DropdownMenu.Item>
           </DropdownMenu.Group>
 
@@ -82,7 +84,7 @@ export default function Example() {
               }}
             >
               <MoonIcon />
-              <span>Dark Mode</span>
+              <span>{t("dropdownMenu.darkMode")}</span>
               <Switch checked={darkMode} className="pointer-events-none ml-2" />
             </DropdownMenu.Item>
           </DropdownMenu.Group>
@@ -92,7 +94,7 @@ export default function Example() {
           <DropdownMenu.Group>
             <DropdownMenu.Item>
               <LogOutIcon />
-              <span>Log Out</span>
+              <span>{t("dropdownMenu.logOut")}</span>
             </DropdownMenu.Item>
           </DropdownMenu.Group>
         </DropdownMenu.Content>

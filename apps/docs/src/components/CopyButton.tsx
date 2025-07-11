@@ -26,10 +26,10 @@ export function CopyButton({ className, content }: CopyButtonProps) {
 
   return (
     <div data-theme="dark">
-      <Tooltip className="font-sans" content={t("button.copied", "Copied")} open={isCopied} side="left">
+      <Tooltip className="font-sans" content={t("button.copied")} open={isCopied} side="left">
         <Button
           isIconOnly
-          aria-label={t("button.copyToClipboard", "Copy code to clipboard")}
+          aria-label={t("button.copyToClipboard")}
           className={cn(
             "wg-copy-button size-7 [&_svg]:size-4",
             className,

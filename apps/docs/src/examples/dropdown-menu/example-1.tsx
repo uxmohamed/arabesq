@@ -1,7 +1,9 @@
 import { DotsHorizontalIcon } from "@iconicicons/react";
 import { Button, DropdownMenu } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
@@ -13,27 +15,27 @@ export default function Example() {
       <DropdownMenu.Content align="end" side="top">
         <DropdownMenu.Group>
           <DropdownMenu.Item>
-            <span>Bold</span>
+            <span>{t("dropdownMenu.bold")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>B</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
-            <span>Italic</span>
+            <span>{t("dropdownMenu.italic")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>I</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
-            <span>Underline</span>
+            <span>{t("dropdownMenu.underline")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
-            <span>Strikethrough</span>
+            <span>{t("dropdownMenu.strikethrough")}</span>
             <DropdownMenu.Shortcut keys={["command", "option"]}>X</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
-            <span>Create link</span>
+            <span>{t("dropdownMenu.createLink")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>K</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
         </DropdownMenu.Group>
@@ -42,12 +44,12 @@ export default function Example() {
 
         <DropdownMenu.Group>
           <DropdownMenu.Item>
-            <span>Bulleted list</span>
+            <span>{t("dropdownMenu.bulletedList")}</span>
             <DropdownMenu.Shortcut keys={["shift", "command"]}>8</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
-            <span>Numbered list</span>
+            <span>{t("dropdownMenu.numberedList")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>7</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
         </DropdownMenu.Group>

@@ -9,11 +9,11 @@ export function Example() {
       <Tabs variant="contained-bottom" defaultValue="actions">
         <Tabs.List>
           <Tabs.Trigger before={<VideoIcon />} value="actions">
-            {t("tabs.actions", "Actions")}
+            {t("tabs.actions")}
           </Tabs.Trigger>
 
           <Tabs.Trigger before={<BookIcon />} value="wiki">
-            {t("tabs.wiki", "Wiki")}
+            {t("tabs.wiki")}
           </Tabs.Trigger>
 
           <Tabs.Trigger before={<LockIcon />} value="security">
@@ -21,10 +21,12 @@ export function Example() {
           </Tabs.Trigger>
         </Tabs.List>
 
-        <Tabs.Content value="actions">{t("tabs.actionsTabContent", "Actions tab content")}</Tabs.Content>
-        <Tabs.Content value="wiki">{t("tabs.wikiTabContent", "Wiki tab content")}</Tabs.Content>
-        <Tabs.Content value="security">{t("tabs.securityTabContent", "Security tab content")}</Tabs.Content>
+        <Tabs.Content value="actions">{t("tabs.actionsTabContent")}</Tabs.Content>
+        <Tabs.Content value="wiki">{t("tabs.wikiTabContent")}</Tabs.Content>
+        <Tabs.Content value="security">{t("tabs.securityTabContent")}</Tabs.Content>
       </Tabs>
     </div>
   );
 }
+
+export default Example;

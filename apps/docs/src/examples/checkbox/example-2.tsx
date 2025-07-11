@@ -1,6 +1,8 @@
 import { AvatarGroup, Checkbox } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto flex w-fit flex-col gap-6 text-left">
       <Checkbox.Root
@@ -11,7 +13,7 @@ export default function Example() {
           <Checkbox.Item />
 
           <div className="flex grow items-center justify-between text-sm">
-            <span className="select-none">Share to 3 users</span>
+            <span className="select-none">{t("checkbox.shareToUsers")}</span>
 
             <AvatarGroup
               items={[

@@ -20,7 +20,7 @@ export function HeaderActions() {
               "shrink-0 text-nowrap text-white/60 outline-white duration-100 hover:text-white"
             )}
           >
-            {t("header.signIn", "Sign in")}
+            {t("header.signIn")}
           </a>
         </li>
 
@@ -31,7 +31,7 @@ export function HeaderActions() {
             shape="pill"
           >
             <a href={siteConfig.getStartedURL}>
-              {t("header.getStarted", "Get started")}
+              {t("header.getStarted")}
               <span className="duration-180 transition-transform group-hover:translate-x-2">→</span>
             </a>
           </Button>

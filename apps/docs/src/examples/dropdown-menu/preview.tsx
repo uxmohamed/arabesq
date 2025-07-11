@@ -1,24 +1,26 @@
 import { DownloadIcon, EyeOffIcon, MailIcon, PinIcon, RedoIcon } from "@iconicicons/react";
 import { Button, DropdownMenu } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button>Open Menu</Button>
+        <Button>{t("dropdownMenu.openMenu")}</Button>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content>
         <DropdownMenu.Group>
           <DropdownMenu.Item disabled>
             <RedoIcon />
-            <span>Reply</span>
+            <span>{t("dropdownMenu.reply")}</span>
             <DropdownMenu.Shortcut keys={["option"]}>R</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
             <PinIcon />
-            <span>Pin</span>
+            <span>{t("dropdownMenu.pin")}</span>
             <DropdownMenu.Shortcut keys={["option"]}>P</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
         </DropdownMenu.Group>
@@ -28,19 +30,19 @@ export default function Example() {
         <DropdownMenu.Group>
           <DropdownMenu.Item>
             <DownloadIcon />
-            <span>Save this message</span>
+            <span>{t("dropdownMenu.saveMessage")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>S</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
             <EyeOffIcon />
-            <span>Mark as unread</span>
+            <span>{t("dropdownMenu.markAsUnread")}</span>
             <DropdownMenu.Shortcut keys={["command", "option"]}>U</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
 
           <DropdownMenu.Item>
             <MailIcon />
-            <span>Share via email</span>
+            <span>{t("dropdownMenu.shareViaEmail")}</span>
             <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
           </DropdownMenu.Item>
         </DropdownMenu.Group>

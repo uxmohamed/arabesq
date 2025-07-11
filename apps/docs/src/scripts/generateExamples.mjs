@@ -57,6 +57,7 @@ const processDirectory = (dir, prefix = "") => {
         const fileContents = fs
           .readFileSync(fullPath, "utf8")
           .replace(/`/g, "\\`")
+          .replace(/\$\{/g, "\\${") // Escape ${ to prevent template interpolation
           .replace("export default function", "export function");
 
         indexContent += `  "${key}": {

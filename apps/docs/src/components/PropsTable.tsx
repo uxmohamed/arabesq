@@ -100,19 +100,19 @@ export const PropsTable = React.forwardRef<
             <tr>
               <th className="text-start">
                 {isData
-                  ? t("propsTable.dataAttribute", "Data attribute")
+                  ? t("propsTable.dataAttribute")
                   : isOptions
-                  ? t("propsTable.option", "Option")
+                  ? t("propsTable.option")
                   : isUtility
-                  ? t("propsTable.class", "Class")
-                  : t("propsTable.prop", "Prop")}
+                  ? t("propsTable.class")
+                  : t("propsTable.prop")}
               </th>
 
               <th className="text-start">
-                {isUtility ? t("propsTable.values", "Values") : t("propsTable.value", "Value")}
+                {isUtility ? t("propsTable.values") : t("propsTable.value")}
               </th>
 
-              {!isData && !isUtility ? <th className="text-start">{t("propsTable.default", "Default")}</th> : null}
+              {!isData && !isUtility ? <th className="text-start">{t("propsTable.default")}</th> : null}
             </tr>
           </thead>
 
@@ -137,7 +137,7 @@ export const PropsTable = React.forwardRef<
                           </code>
                         ) : (
                           // Fallback if there's no value
-                          <span className="select-none text-surface-200">{t("propsTable.fallback", "/")}</span>
+                          <span className="select-none text-surface-200">{t("propsTable.fallback")}</span>
                         )}
 
                         <Description>{rowItem.description}</Description>

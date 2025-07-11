@@ -16,7 +16,7 @@ export function TableOfContents({ source }: { source: string }) {
 
   return (
     <div className="leadning-6 sticky top-[152px] hidden space-y-4 self-start text-sm xl:block">
-      <h2 className="not-prose text-sm font-medium text-surface-900">{t("toc.onThisPage", "On this page")}</h2>
+      <h2 className="not-prose text-sm font-medium text-surface-900">{t("toc.onThisPage")}</h2>
       <Items activeItemId={activeItemId} items={toc} />
     </div>
   );
@@ -53,7 +53,7 @@ function Items({ items, activeItemId, className, sub }: TreeProps) {
               )}
               href={item.url}
             >
-              {sub ? t("toc.arrow", "→ ") : null}
+              {sub ? t("toc.arrow") : null}
               {item.title}
             </a>
 

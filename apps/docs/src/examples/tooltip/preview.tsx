@@ -1,10 +1,12 @@
 import { Tooltip } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <Tooltip
       animation={true}
-      content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+      content={t("form.tooltip.info")}
       delayDuration={0}
     />
   );

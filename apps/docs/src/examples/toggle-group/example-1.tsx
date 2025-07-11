@@ -7,27 +7,29 @@ import {
   TableRowsIcon,
 } from "@iconicicons/react";
 import { ToggleGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-center gap-6">
       <ToggleGroup type="single" defaultValue="days">
-        <ToggleGroup.Item value="days">Days</ToggleGroup.Item>
-        <ToggleGroup.Item value="months">Months</ToggleGroup.Item>
-        <ToggleGroup.Item value="years">Years</ToggleGroup.Item>
+        <ToggleGroup.Item value="days">{t("toggleGroup.days")}</ToggleGroup.Item>
+        <ToggleGroup.Item value="months">{t("toggleGroup.months")}</ToggleGroup.Item>
+        <ToggleGroup.Item value="years">{t("toggleGroup.years")}</ToggleGroup.Item>
       </ToggleGroup>
 
       <ToggleGroup type="single" size="sm" defaultValue="grid">
         <ToggleGroup.Item before={<GridIcon />} value="grid">
-          Grid
+          {t("toggleGroup.grid")}
         </ToggleGroup.Item>
 
         <ToggleGroup.Item before={<ColumnsHorizontalIcon />} value="column">
-          Column
+          {t("toggleGroup.column")}
         </ToggleGroup.Item>
 
         <ToggleGroup.Item before={<RowsIcon />} value="row">
-          Row
+          {t("toggleGroup.row")}
         </ToggleGroup.Item>
       </ToggleGroup>
 

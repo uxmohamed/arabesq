@@ -12,7 +12,9 @@ export function Example() {
         alert("Custom onClose callback with preventDefault()");
       }}
     >
-      {t("tag.tag", "Tag")}
+      {t("tag.tag")}
     </Tag>
   );
 }
+
+export default Example;

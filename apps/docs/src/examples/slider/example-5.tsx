@@ -8,7 +8,7 @@ export default function Example() {
     <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col gap-y-20">
       <Slider
         defaultValue={[5]}
-        description={t("form.ratingRange", "(1-10)")}
+        description={t("form.ratingRange")}
         helperText={t("form.howHappy")}
         label={t("form.rating")}
         max={10}
@@ -17,12 +17,12 @@ export default function Example() {
         before={
           <div className="flex items-center gap-4">
             <EmojiSadIcon className="size-6 opacity-50" />
-            <span>1</span>
+            <span>{t("form.min")}</span>
           </div>
         }
         after={
           <div className="flex items-center gap-4">
-            <span>10</span>
+            <span>{t("form.max")}</span>
             <EmojiHappyIcon className="size-6 opacity-50" />
           </div>
         }
@@ -48,19 +48,19 @@ export default function Example() {
       />
 
       <Slider
-        after="$10,000"
-        before="$1,000"
+        after={t("form.currency", { value: 10000 })}
+        before={t("form.currency", { value: 1000 })}
         defaultValue={[2500, 5000]}
         label={t("form.priceRange")}
         max={10000}
         min={1000}
-        renderTooltip={(val) => "$" + val.toLocaleString("en-US")}
+        renderTooltip={(val) => t("form.price", { value: val })}
         showTooltip="hover"
         step={100}
       />
 
       <Slider
-        after="10"
+        after={t("form.max")}
         before={<StarIcon className="size-6 opacity-50" />}
         defaultValue={[6]}
         max={10}

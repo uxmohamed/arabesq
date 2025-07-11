@@ -77,8 +77,8 @@ const Search = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props
       >
         <button>
           <span className="duration-180 flex items-center gap-1.5 text-surface-400 transition-colors group-hover:text-surface-500">
-            <SearchIcon aria-label={t("search.quickSearch", "Quick search")} className="h-5 w-5" />
-            <span className="hidden md:block">{t("search.quickSearchEllipsis", "Quick search…")}</span>
+            <SearchIcon aria-label={t("search.quickSearch")} className="h-5 w-5" />
+            <span className="hidden md:block">{t("search.quickSearchEllipsis")}</span>
           </span>
 
           <Kbd
@@ -149,7 +149,7 @@ function SearchButton() {
       variant="transparent"
       onClick={toggleSearch}
     >
-      {t("search.search", "Search")}
+      {t("search.search")}
     </Button>
   );
 }

@@ -17,27 +17,27 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="primary" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
       </div>
 
@@ -52,7 +52,7 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button
@@ -62,7 +62,7 @@ export default function Example() {
           shape="pill"
           destructive
         >
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button
@@ -72,7 +72,7 @@ export default function Example() {
           shape="pill"
           destructive
         >
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button
@@ -82,7 +82,7 @@ export default function Example() {
           shape="pill"
           destructive
         >
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button
@@ -92,11 +92,11 @@ export default function Example() {
           shape="pill"
           destructive
         >
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill" destructive>
-          {t("button.label", "Button")}
+          {t("button.label")}
         </Button>
       </div>
     </div>

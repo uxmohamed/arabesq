@@ -7,11 +7,13 @@ export function Example() {
     <Switch
       required
       alignLabel="end"
-      description={t("form.description", "(description)")}
+      description={t("form.description")}
       disabled={false}
-      helperText={t("form.helperText", "Helper Text")}
-      label={t("form.label", "Label")}
-      tooltip={t("form.tooltip", "Tooltip example")}
+      helperText={t("form.helperText")}
+      label={t("form.label")}
+      tooltip={t("form.tooltip")}
     />
   );
 }
+
+export default Example;

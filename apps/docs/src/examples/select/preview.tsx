@@ -16,17 +16,17 @@ export function Example() {
   const wrapper = React.useRef<HTMLDivElement>(null);
   return (
     <div ref={wrapper} className="inline-flex max-w-[192px] flex-col gap-10">
-      <Select label={t("select.projectStatus", "Project status")} tooltip={t("form.tooltip")} required>
+      <Select label={t("select.projectStatus")} tooltip={t("form.tooltip")} required>
         <SelectTrigger className="min-w-[192px]">
-          <SelectValue placeholder={t("select.selectStatus", "Select status")} />
+          <SelectValue placeholder={t("select.selectStatus")} />
           <SelectIcon />
         </SelectTrigger>
         <SelectPortal container={wrapper.current}>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="overdue">{t("select.overdue", "Overdue")}</SelectItem>
-              <SelectItem value="due-this-week">{t("select.dueThisWeek", "Due this week")}</SelectItem>
-              <SelectItem value="upcoming">{t("select.upcoming", "Upcoming")}</SelectItem>
+              <SelectItem value="overdue">{t("select.overdue")}</SelectItem>
+              <SelectItem value="due-this-week">{t("select.dueThisWeek")}</SelectItem>
+              <SelectItem value="upcoming">{t("select.upcoming")}</SelectItem>
             </SelectGroup>
           </SelectContent>
         </SelectPortal>
@@ -34,3 +34,5 @@ export function Example() {
     </div>
   );
 }
+
+export default Example;

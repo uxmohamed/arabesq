@@ -11,22 +11,24 @@ import {
   TableRowsIcon,
 } from "@iconicicons/react";
 import { ButtonGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center gap-6">
       {/* Example 1 */}
       <ButtonGroup orientation="vertical">
         <ButtonGroup.Item className="justify-start" before={<SunIcon />}>
-          Light
+          {t("buttonGroup.light")}
         </ButtonGroup.Item>
 
         <ButtonGroup.Item className="justify-start" before={<MoonIcon />}>
-          Dark
+          {t("buttonGroup.dark")}
         </ButtonGroup.Item>
 
         <ButtonGroup.Item className="justify-start" before={<Monitor2Icon />}>
-          System
+          {t("buttonGroup.system")}
         </ButtonGroup.Item>
       </ButtonGroup>
 
@@ -40,18 +42,18 @@ export default function Example() {
 
       {/* Example 3 */}
       <ButtonGroup>
-        <ButtonGroup.Item disabled>Publish Post</ButtonGroup.Item>
-        <ButtonGroup.Item>Draft</ButtonGroup.Item>
+        <ButtonGroup.Item disabled>{t("buttonGroup.publishPost")}</ButtonGroup.Item>
+        <ButtonGroup.Item>{t("buttonGroup.draft")}</ButtonGroup.Item>
         <ButtonGroup.Item before={<DotsVerticalIcon />} />
       </ButtonGroup>
 
       {/* Example 4 */}
       <ButtonGroup size="sm">
         <ButtonGroup.Item destructive before={<PlusIcon />}>
-          Destructive
+          {t("buttonGroup.destructive")}
         </ButtonGroup.Item>
 
-        <ButtonGroup.Item before={<PlusIcon />}>Button</ButtonGroup.Item>
+        <ButtonGroup.Item before={<PlusIcon />}>{t("buttonGroup.button")}</ButtonGroup.Item>
 
         <ButtonGroup.Item before={<ChevronDownIcon />} />
       </ButtonGroup>

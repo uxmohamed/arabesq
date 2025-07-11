@@ -13,11 +13,13 @@ export function Example() {
         required
         tooltip={t("form.tooltip")}
       >
-        <RadioGroup.Item label={t("form.value1", "Value 1")} value="value-1" />
-        <RadioGroup.Item label={t("form.value2", "Value 2")} value="value-2" />
-        <RadioGroup.Item label={t("form.value3", "Value 3")} value="value-3" />
-        <RadioGroup.Item label={t("form.value4", "Value 4")} value="value-4" />
+        <RadioGroup.Item label={t("form.value1")} value="value-1" />
+        <RadioGroup.Item label={t("form.value2")} value="value-2" />
+        <RadioGroup.Item label={t("form.value3")} value="value-3" />
+        <RadioGroup.Item label={t("form.value4")} value="value-4" />
       </RadioGroup>
     </div>
   );
 }
+
+export default Example;

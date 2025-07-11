@@ -1,20 +1,20 @@
 import { ToggleGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <ToggleGroup type="multiple" size="sm" defaultValue={["mon", "wed"]}>
-      <ToggleGroup.Item value="mon">Mon</ToggleGroup.Item>
-      <ToggleGroup.Item value="tue">Tue</ToggleGroup.Item>
-      <ToggleGroup.Item value="wed">Wed</ToggleGroup.Item>
-      <ToggleGroup.Item value="thu">Thu</ToggleGroup.Item>
-      <ToggleGroup.Item value="fri">Fri</ToggleGroup.Item>
-
+      <ToggleGroup.Item value="mon">{t("toggleGroup.mon")}</ToggleGroup.Item>
+      <ToggleGroup.Item value="tue">{t("toggleGroup.tue")}</ToggleGroup.Item>
+      <ToggleGroup.Item value="wed">{t("toggleGroup.wed")}</ToggleGroup.Item>
+      <ToggleGroup.Item value="thu">{t("toggleGroup.thu")}</ToggleGroup.Item>
+      <ToggleGroup.Item value="fri">{t("toggleGroup.fri")}</ToggleGroup.Item>
       <ToggleGroup.Item value="sat" disabled>
-        Sat
+        {t("toggleGroup.sat")}
       </ToggleGroup.Item>
-
       <ToggleGroup.Item value="sun" disabled>
-        Sun
+        {t("toggleGroup.sun")}
       </ToggleGroup.Item>
     </ToggleGroup>
   );

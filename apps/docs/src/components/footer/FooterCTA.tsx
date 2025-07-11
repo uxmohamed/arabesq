@@ -14,16 +14,16 @@ export function FooterCTA() {
         <div className="mb-[120px] flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-[492px]">
             <p className="mb-8 text-sm font-medium uppercase leading-6 tracking-[2px] text-wg-yellow-500">
-              {t("footer.elevateBusiness", "Elevate your business")}
+              {t("footer.elevateBusiness")}
             </p>
 
             <h2 className="font-display text-4xl font-normal text-white lg:text-6xl">
-              {t("footer.takeToNextLevel", "Take your business to the next level with Lemon Squeezy")}
+              {t("footer.takeToNextLevel")}
             </h2>
           </div>
 
           <Button hoverEffect href={siteConfig.getStartedURL} size="lg" variant="tertiary">
-            {t("footer.getStartedForFree", "Get started for free")}
+            {t("footer.getStartedForFree")}
           </Button>
         </div>
 
@@ -32,7 +32,7 @@ export function FooterCTA() {
           className="relative left-1/2 ml-10 min-w-[640px] -translate-x-1/2 lg:min-w-0"
           width={1360}
           height={756}
-          alt={t("footer.getStartedAlt", "Get started with Lemon Squeezy")}
+          alt={t("footer.getStartedAlt")}
         />
       </div>
     </div>

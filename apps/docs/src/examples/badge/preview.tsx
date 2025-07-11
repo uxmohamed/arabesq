@@ -6,7 +6,7 @@ export function Example() {
   const { t } = useTranslation();
   return (
     <Badge before={<PlusIcon />} after={<PlusIcon />}>
-      {t("badge.label", "Label")}
+      {t("badge.label")}
     </Badge>
   );
 }

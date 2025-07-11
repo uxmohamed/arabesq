@@ -7,40 +7,40 @@ export default function Example() {
   return (
     <div className="flex flex-col gap-6">
       {/* Example 1 */}
-      <Alert color="success" title={t("alert.successUploaded", "Successfully uploaded!")} before={<CheckIcon />} closable />
+      <Alert color="success" title={t("alert.successUploaded")} before={<CheckIcon />} closable />
 
       {/* Example 2 */}
       <Alert
-        title={t("alert.noCredits", "You have no credits left!")}
+        title={t("alert.noCredits")}
         color="warning"
         after={
           <Button
             variant="link"
             className="text-inherit hover:text-surface-900 dark:text-wg-yellow-500 dark:hover:text-yellow-300"
           >
-            {t("button.upgrade", "Upgrade")}
+            {t("button.upgrade")}
           </Button>
         }
       >
-        {t("alert.upgradeToContinue", "Upgrade to continue.")}
+        {t("alert.upgradeToContinue")}
       </Alert>
 
       {/* Example 3 */}
       <Alert
         before={<EmojiSadIcon />}
         color="error"
-        title={t("alert.submissionProblem", "There was a problem with your submission")}
+        title={t("alert.submissionProblem")}
         variant="expanded"
       >
         <div>
-          <p>{t("alert.mustIncludeNumber", "Must include at least 1 number")}</p>
-          <p>{t("alert.mustIncludeUppercase", "Must include at least 2 uppercase letters")}</p>
+          <p>{t("alert.mustIncludeNumber")}</p>
+          <p>{t("alert.mustIncludeUppercase")}</p>
         </div>
       </Alert>
 
       {/* Example 4 */}
       <Alert
-        title={t("alert.softwareUpdate", "A new software update is available. See what's new.")}
+        title={t("alert.softwareUpdate")}
         closable
         color="info"
         variant="expanded"
@@ -51,7 +51,7 @@ export default function Example() {
             size="sm"
             after={<ArrowUpRightIcon />}
           >
-            {t("button.viewChangelog", "View the changelog")}
+            {t("button.viewChangelog")}
           </Button>
         }
       />

@@ -1,8 +1,10 @@
 import * as React from "react";
 import { SpinnerIcon } from "@iconicicons/react";
 import { ProgressBar } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   const [value, setValue] = React.useState(0);
 
   React.useEffect(() => {
@@ -16,10 +18,10 @@ export default function Example() {
     <div className="inline-block w-full max-w-[400px]">
       <ProgressBar
         afterIndicator={<SpinnerIcon className="animate-spin" />}
-        helperText="Helper text"
+        helperText={t("progressBar.helperText")}
         indicator={value + "%"}
-        label="Label"
-        tooltip="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        label={t("progressBar.label")}
+        tooltip={t("progressBar.tooltip")}
         value={value}
         max={100}
       />

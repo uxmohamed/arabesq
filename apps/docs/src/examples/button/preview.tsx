@@ -6,7 +6,7 @@ export default function Example() {
   const { t } = useTranslation();
   return (
     <Button after={<PlusIcon />} before={<PlusIcon />}>
-      {t("button.save", "Button")}
+      {t("button.save")}
     </Button>
   );
 }
