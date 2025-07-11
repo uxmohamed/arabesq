@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import i18n from "@/lib/i18n";
 
 interface LanguageContextProps {
   lang: "ar" | "en";
@@ -21,6 +22,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
+    i18n.changeLanguage(lang);
   }, [lang]);
 
   const dir = lang === "ar" ? "rtl" : "ltr";

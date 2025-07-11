@@ -1,5 +1,8 @@
+"use client";
+
 import * as React from "react";
 import { Tooltip } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 import { createLabelDocs, type LabelDocsParams } from "@/lib/docUtils";
 import { cn } from "@/lib/utils";
@@ -42,6 +45,7 @@ export const PropsTable = React.forwardRef<
     },
     ref
   ) => {
+    const { t } = useTranslation();
     // Include label docs?
     const {
       label = false,
@@ -95,12 +99,20 @@ export const PropsTable = React.forwardRef<
           <thead>
             <tr>
               <th className="text-start">
-                {isData ? "Data attribute" : isOptions ? "Option" : isUtility ? "Class" : "Prop"}
+                {isData
+                  ? t("propsTable.dataAttribute", "Data attribute")
+                  : isOptions
+                  ? t("propsTable.option", "Option")
+                  : isUtility
+                  ? t("propsTable.class", "Class")
+                  : t("propsTable.prop", "Prop")}
               </th>
 
-              <th className="text-start">{isUtility ? "Values" : "Value"}</th>
+              <th className="text-start">
+                {isUtility ? t("propsTable.values", "Values") : t("propsTable.value", "Value")}
+              </th>
 
-              {!isData && !isUtility ? <th className="text-start">Default</th> : null}
+              {!isData && !isUtility ? <th className="text-start">{t("propsTable.default", "Default")}</th> : null}
             </tr>
           </thead>
 
@@ -125,7 +137,7 @@ export const PropsTable = React.forwardRef<
                           </code>
                         ) : (
                           // Fallback if there's no value
-                          <span className="select-none text-surface-200">/</span>
+                          <span className="select-none text-surface-200">{t("propsTable.fallback", "/")}</span>
                         )}
 
                         <Description>{rowItem.description}</Description>

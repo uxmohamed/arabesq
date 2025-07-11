@@ -11,6 +11,7 @@ import { LemonSqueezyLogomark } from "./icons/lemonsqueezy";
 import { PreviewCode } from "./PreviewCode";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { LanguageProvider, useLanguage } from "@/components/LanguageProvider";
+import { useTranslation } from "react-i18next";
 
 type PreviewComponentType = TabsElement;
 type PreviewComponentProps = TabsProps & {
@@ -27,6 +28,7 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
     const previewRef = useRef<HTMLDivElement>(null);
     const [theme, setTheme] = useState<"light" | "dark">("light");
     const { lang, dir } = useLanguage();
+    const { t } = useTranslation();
 
     const Component = useMemo(() => Demos[name]?.component, [name]);
     const Preview = !Component ? NotFound : Component;
@@ -66,11 +68,11 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
       >
         <Tabs.List>
           <Tabs.Trigger before={<EyeIcon />} value="preview">
-            Preview
+            {t("preview.previewTab", "Preview")}
           </Tabs.Trigger>
 
           <Tabs.Trigger before={<CodeIcon />} value="code">
-            Code
+            {t("preview.codeTab", "Code")}
           </Tabs.Trigger>
         </Tabs.List>
 
@@ -125,16 +127,18 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
 PreviewComponent.displayName = "PreviewComponent";
 
 function SuspenseFallback() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center gap-4 text-xs leading-6 text-surface-500">
       <LemonSqueezyLogomark className="fill-surface-200" fill="none" loading={true} />
-      <span>Loading preview</span>
+      <span>{t("preview.loadingPreview", "Loading preview")}</span>
     </div>
   );
 }
 
 function NotFound() {
-  return <span className="text-surface-500">Unable to display component preview</span>;
+  const { t } = useTranslation();
+  return <span className="text-surface-500">{t("preview.unableToDisplay", "Unable to display component preview")}</span>;
 }
 
 function PreviewContainer({ children, ...props }: { children: React.ReactNode }) {

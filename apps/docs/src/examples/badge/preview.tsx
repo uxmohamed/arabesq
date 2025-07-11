@@ -1,10 +1,14 @@
 import { PlusIcon } from "@iconicicons/react";
 import { Badge } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
-export default function Example() {
+export function Example() {
+  const { t } = useTranslation();
   return (
     <Badge before={<PlusIcon />} after={<PlusIcon />}>
-      Label
+      {t("badge.label", "Label")}
     </Badge>
   );
 }
+
+export default Example;

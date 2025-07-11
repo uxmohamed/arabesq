@@ -1,7 +1,9 @@
 import { PlusIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit items-start gap-10">
       <div className="flex flex-col gap-4">
@@ -15,27 +17,27 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />} size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
       </div>
 
@@ -50,7 +52,7 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button
@@ -60,7 +62,7 @@ export default function Example() {
           shape="pill"
           size="sm"
         >
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button
@@ -70,11 +72,11 @@ export default function Example() {
           shape="pill"
           size="sm"
         >
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" shape="pill" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button
@@ -84,11 +86,11 @@ export default function Example() {
           shape="pill"
           size="sm"
         >
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill" size="sm">
-          Button
+          {t("button.label", "Button")}
         </Button>
       </div>
     </div>

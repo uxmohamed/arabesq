@@ -1,30 +1,26 @@
 import * as React from "react";
 import { BookIcon, FileIcon, FolderIcon, TrashIcon } from "@iconicicons/react";
 import { Avatar, Tag } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start gap-4">
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag closable>Pineapple</Tag>
+        <Tag closable>{t("tag.pineapple")}</Tag>
 
-        <Tag color="yellow" closable stroke>
-          Lemons
-        </Tag>
+        <Tag color="yellow" closable stroke>{t("tag.lemons")}</Tag>
 
-        <Tag closable>Watermelon</Tag>
+        <Tag closable>{t("tag.watermelon")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag before={<DotIcon />} color="green">
-          Online
-        </Tag>
+        <Tag before={<DotIcon />} color="green">{t("tag.online")}</Tag>
 
-        <Tag before={<DotIcon />} color="red">
-          Offline
-        </Tag>
+        <Tag before={<DotIcon />} color="red">{t("tag.offline")}</Tag>
 
-        <Tag before={<DotIcon className="text-surface-300" />}>Suspended</Tag>
+        <Tag before={<DotIcon className="text-surface-300" />}>{t("tag.suspended")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
@@ -34,7 +30,7 @@ export default function Example() {
           shape="pill"
           stroke
         >
-          @ormanclark
+          {t("tag.ormanclark")}
         </Tag>
 
         <Tag
@@ -43,68 +39,42 @@ export default function Example() {
           shape="pill"
           stroke
         >
-          Lemon Squeezy
+          {t("tag.lemonSqueezy")}
         </Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag before={<FolderIcon />} color="blue" closable>
-          Folders
-        </Tag>
+        <Tag before={<FolderIcon />} color="blue" closable>{t("tag.folders")}</Tag>
 
-        <Tag before={<FileIcon />} color="blue">
-          Files
-        </Tag>
+        <Tag before={<FileIcon />} color="blue">{t("tag.files")}</Tag>
 
-        <Tag before={<BookIcon />} color="blue" closable>
-          Guides
-        </Tag>
+        <Tag before={<BookIcon />} color="blue" closable>{t("tag.guides")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag color="yellow" closable stroke>
-          New
-        </Tag>
+        <Tag color="yellow" closable stroke>{t("tag.new")}</Tag>
 
-        <Tag color="orange" closable stroke>
-          Pending
-        </Tag>
+        <Tag color="orange" closable stroke>{t("tag.pending")}</Tag>
 
-        <Tag color="green" closable stroke>
-          Active
-        </Tag>
+        <Tag color="green" closable stroke>{t("tag.active")}</Tag>
 
-        <Tag color="red" closable stroke>
-          Closed
-        </Tag>
+        <Tag color="red" closable stroke>{t("tag.closed")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag color="primary" closable shape="pill">
-          Free parking
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.freeParking")}</Tag>
 
-        <Tag color="primary" closable shape="pill">
-          Pool
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.pool")}</Tag>
 
-        <Tag color="primary" closable shape="pill">
-          Free WiFi
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.freeWifi")}</Tag>
 
-        <Tag color="primary" closable shape="pill">
-          Gym
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.gym")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag before={<UKFlagIcon />} closable>
-          United Kingdom
-        </Tag>
+        <Tag before={<UKFlagIcon />} closable>{t("tag.unitedKingdom")}</Tag>
 
-        <Tag before={<USFlagIcon />} closable>
-          United States
-        </Tag>
+        <Tag before={<USFlagIcon />} closable>{t("tag.unitedStates")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
@@ -117,7 +87,7 @@ export default function Example() {
           size="sm"
           stroke
         >
-          ux
+          {t("tag.ux")}
         </Tag>
 
         <Tag
@@ -129,7 +99,7 @@ export default function Example() {
           size="sm"
           stroke
         >
-          ui
+          {t("tag.ui")}
         </Tag>
 
         <Tag
@@ -141,7 +111,7 @@ export default function Example() {
           size="sm"
           stroke
         >
-          motion
+          {t("tag.motion")}
         </Tag>
 
         <Tag
@@ -153,7 +123,7 @@ export default function Example() {
           size="sm"
           stroke
         >
-          graphics
+          {t("tag.graphics")}
         </Tag>
       </div>
     </div>

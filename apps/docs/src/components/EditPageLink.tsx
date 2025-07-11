@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronUpIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 import { GithubIcon } from "./Icons";
 
@@ -11,6 +12,7 @@ const DATA_FOLDER_PATH = "https://github.com/lmsqueezy/wedges/edit/main/apps/doc
 
 export function EditPageLink() {
   const pathname = usePathname();
+  const { t } = useTranslation();
   let routerSlug = "";
 
   if (pathname === "/") {
@@ -30,7 +32,7 @@ export function EditPageLink() {
         variant="link"
       >
         <Link href={editURL} rel="noopener noreferrer" target="_blank">
-          <span>Edit this page</span>
+          <span>{t("editPage.editThisPage", "Edit this page")}</span>
         </Link>
       </Button>
 
@@ -40,7 +42,7 @@ export function EditPageLink() {
         variant="link"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
-        Back to top
+        {t("editPage.backToTop", "Back to top")}
       </Button>
     </div>
   );

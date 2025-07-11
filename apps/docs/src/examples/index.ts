@@ -14,27 +14,31 @@ export const Demos: Record<string, Demo> = {
   "alert/example-1": {
     component: lazy(() => import("@/examples/alert/example-1.tsx")),
     code: `import { Alert, Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <Alert
       closable
       color="primary"
       onClose={() => alert("onClose callback")}
-      title="The data export you requested is ready!"
+      title={t("alert.title")}
       variant="expanded"
       after={
         <div className="flex items-center gap-3">
           <Button variant="outline" size="sm" className="light:bg-white">
-            View the data
+            {t("button.save")}
           </Button>
 
           <Button variant="link" size="sm" className="text-surface-500 hover:text-surface-900">
-            Maybe later
+            {t("button.cancel")}
           </Button>
         </div>
       }
-    />
+    >
+      {t("alert.content")}
+    </Alert>
   );
 }
 `,
@@ -43,45 +47,47 @@ export function Example() {
     component: lazy(() => import("@/examples/alert/example-2.tsx")),
     code: `import { ArrowUpRightIcon, CheckIcon, EmojiSadIcon } from "@iconicicons/react";
 import { Alert, Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-6">
       {/* Example 1 */}
-      <Alert color="success" title="Successfully uploaded!" before={<CheckIcon />} closable />
+      <Alert color="success" title={t("alert.successUploaded", "Successfully uploaded!")} before={<CheckIcon />} closable />
 
       {/* Example 2 */}
       <Alert
-        title="You have no credits left!"
+        title={t("alert.noCredits", "You have no credits left!")}
         color="warning"
         after={
           <Button
             variant="link"
             className="text-inherit hover:text-surface-900 dark:text-wg-yellow-500 dark:hover:text-yellow-300"
           >
-            Upgrade
+            {t("button.upgrade", "Upgrade")}
           </Button>
         }
       >
-        Upgrade to continue.
+        {t("alert.upgradeToContinue", "Upgrade to continue.")}
       </Alert>
 
       {/* Example 3 */}
       <Alert
         before={<EmojiSadIcon />}
         color="error"
-        title="There was a problem with your submission"
+        title={t("alert.submissionProblem", "There was a problem with your submission")}
         variant="expanded"
       >
         <div>
-          <p>Must include at least 1 number</p>
-          <p>Must include at least 2 uppercase letters</p>
+          <p>{t("alert.mustIncludeNumber", "Must include at least 1 number")}</p>
+          <p>{t("alert.mustIncludeUppercase", "Must include at least 2 uppercase letters")}</p>
         </div>
       </Alert>
 
       {/* Example 4 */}
       <Alert
-        title="A new software update is available. See what's new."
+        title={t("alert.softwareUpdate", "A new software update is available. See what's new.")}
         closable
         color="info"
         variant="expanded"
@@ -92,7 +98,7 @@ export function Example() {
             size="sm"
             after={<ArrowUpRightIcon />}
           >
-            View the changelog
+            {t("button.viewChangelog", "View the changelog")}
           </Button>
         }
       />
@@ -104,11 +110,13 @@ export function Example() {
   "alert/preview": {
     component: lazy(() => import("@/examples/alert/preview.tsx")),
     code: `import { Alert, Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
-    <Alert title="Alert title" after={<Button variant="link">Button</Button>}>
-      Alert content
+    <Alert title={t("alert.title")} after={<Button variant="link">{t("button.save")}</Button>}>
+      {t("alert.content")}
     </Alert>
   );
 }
@@ -557,21 +565,23 @@ import {
   WifiIcon,
 } from "@iconicicons/react";
 import { Avatar, Badge } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start gap-4">
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<CheckIcon />} color="green" shape="pill">
-          Paid
+          {t("badge.paid")}
         </Badge>
 
         <Badge before={<CheckIcon />} color="green" stroke>
-          Active
+          {t("badge.active")}
         </Badge>
 
         <Badge before={<CheckIcon />} color="green" shape="pill">
-          Paid
+          {t("badge.paid")}
         </Badge>
 
         <Badge before={<CheckIcon />} color="green" stroke shape="pill">
@@ -581,109 +591,109 @@ export function Example() {
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<CloseIcon />} color="red" shape="pill">
-          Rejected
+          {t("badge.rejected")}
         </Badge>
 
         <Badge before={<CloseIcon />} color="red" stroke>
-          Chargeback
+          {t("badge.chargeback")}
         </Badge>
 
         <Badge before={<MinusIcon />} color="red" shape="pill" stroke>
-          Disconnected
+          {t("badge.disconnected")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<CloseIcon />} shape="pill">
-          Void
+          {t("badge.void")}
         </Badge>
 
         <Badge before={<CloseIcon />} stroke>
-          Expired
+          {t("badge.expired")}
         </Badge>
 
-        <Badge before={<CloseIcon />}>Draft</Badge>
+        <Badge before={<CloseIcon />}>{t("badge.draft")}</Badge>
 
         <Badge before={<DotIcon className="text-wg-green" />} shape="pill" stroke>
-          Online
+          {t("badge.online")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<SpinnerIcon />} color="blue" shape="pill">
-          Processing
+          {t("badge.processing")}
         </Badge>
 
         <Badge before={<FlagIcon />} color="blue" stroke>
-          Flagged
+          {t("badge.flagged")}
         </Badge>
 
         <Badge color="blue" shape="pill" stroke>
-          Washington D.C.
+          {t("badge.washingtonDC")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge color="pink" shape="pill">
-          Special
+          {t("badge.special")}
         </Badge>
 
         <Badge color="pink" stroke>
-          Trial
+          {t("badge.trial")}
         </Badge>
 
         <Badge before={<BookmarkIcon />} color="pink">
-          Bookmarked
+          {t("badge.bookmarked")}
         </Badge>
 
         <Badge before={<HashtagIcon />} color="pink" shape="pill" stroke>
-          Live
+          {t("badge.live")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<UndoIcon />} color="yellow" shape="pill">
-          Moved
+          {t("badge.moved")}
         </Badge>
 
         <Badge color="yellow" stroke>
-          New
+          {t("badge.new")}
         </Badge>
 
         <Badge before={<ShieldTickIcon />} color="yellow">
-          Secure
+          {t("badge.secure")}
         </Badge>
 
         <Badge before={<LockIcon />} color="yellow" shape="pill" stroke>
-          Locked
+          {t("badge.locked")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge color="orange" shape="pill">
-          Beta
+          {t("badge.beta")}
         </Badge>
 
         <Badge before={<EmojiHappyIcon />} color="orange" stroke>
-          Hello!
+          {t("badge.hello")}
         </Badge>
 
         <Badge before={<PlayIcon />} color="orange">
-          1m 30s
+          {t("badge.oneMinuteThirty")}
         </Badge>
 
         <Badge before={<PinIcon />} color="orange" shape="pill" stroke>
-          Pinned
+          {t("badge.pinned")}
         </Badge>
 
         <Badge color="orange" shape="pill" stroke>
-          4
+          {t("badge.four")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<HeartIcon />} color="primary" shape="pill">
-          Design Systems
+          {t("badge.designSystems")}
         </Badge>
 
         <Badge
@@ -691,11 +701,11 @@ export function Example() {
           color="primary"
           shape="pill"
         >
-          @ormanclark
+          {t("badge.ormanclark")}
         </Badge>
 
         <Badge before={<WifiIcon />} color="primary" shape="pill">
-          Free Wi-Fi
+          {t("badge.freeWifi")}
         </Badge>
       </div>
     </div>
@@ -703,6 +713,7 @@ export function Example() {
 }
 
 export function Example2() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start gap-4">
       <Badge
@@ -710,48 +721,48 @@ export function Example2() {
           <span className="flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:bg-wg-green before:content-['']" />
         }
       >
-        Online
+        {t("badge.online")}
       </Badge>
 
       <Badge before={<SpinnerIcon />} color="blue" shape="pill">
-        Processing
+        {t("badge.processing")}
       </Badge>
 
       <Badge before={<FlagIcon />} color="blue" stroke>
-        Flagged
+        {t("badge.flagged")}
       </Badge>
 
       <Badge color="blue" shape="pill" stroke>
-        Washington D.C.
+        {t("badge.washingtonDC")}
       </Badge>
 
       <Badge color="red" shape="pill">
-        4
+        {t("badge.four")}
       </Badge>
 
       <Badge before={<PinTackIcon />} color="yellow" stroke>
-        Pinned
+        {t("badge.pinned")}
       </Badge>
 
       <Badge before={<PlayIcon />} color="pink" shape="pill">
-        1m 30s
+        {t("badge.oneMinuteThirty")}
       </Badge>
 
       <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
         <Badge color="green" size="sm" shape="pill" stroke>
-          New York City
+          {t("badge.newYorkCity")}
         </Badge>
 
         <Badge color="orange" size="sm" shape="pill">
-          1
+          {t("badge.one")}
         </Badge>
 
         <Badge before={<PinTackIcon />} size="sm" color="yellow" stroke>
-          Pinned
+          {t("badge.pinned")}
         </Badge>
 
         <Badge before={<PlayIcon />} size="sm" color="pink" shape="pill">
-          1m 30s
+          {t("badge.oneMinuteThirty")}
         </Badge>
       </div>
     </div>
@@ -772,14 +783,18 @@ const DotIcon = React.forwardRef<SVGSVGElement, React.SVGAttributes<SVGSVGElemen
     component: lazy(() => import("@/examples/badge/preview.tsx")),
     code: `import { PlusIcon } from "@iconicicons/react";
 import { Badge } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <Badge before={<PlusIcon />} after={<PlusIcon />}>
-      Label
+      {t("badge.label", "Label")}
     </Badge>
   );
 }
+
+export default Example;
 `,
   },
   "button/example-1": {
@@ -1080,7 +1095,7 @@ export function Example() {
   const { t } = useTranslation();
   return (
     <Button after={<PlusIcon />} before={<PlusIcon />}>
-      {t("welcome")}
+      {t("button.save", "Button")}
     </Button>
   );
 }
@@ -1348,21 +1363,23 @@ export function Example() {
   "checkbox-group/preview": {
     component: lazy(() => import("@/examples/checkbox-group/preview.tsx")),
     code: `import { CheckboxGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto w-fit text-left">
       <CheckboxGroup
-        description="description"
-        helperText="Helper text"
-        label="Label"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
         required
-        tooltip="Tooltip example"
+        tooltip={t("form.tooltip")}
       >
-        <CheckboxGroup.Item label="Option 1" />
-        <CheckboxGroup.Item label="Option 2" />
-        <CheckboxGroup.Item label="Option 3" />
-        <CheckboxGroup.Item label="Option 4" />
+        <CheckboxGroup.Item label={t("form.option1")} />
+        <CheckboxGroup.Item label={t("form.option2")} />
+        <CheckboxGroup.Item label={t("form.option3")} />
+        <CheckboxGroup.Item label={t("form.option4")} />
       </CheckboxGroup>
     </div>
   );
@@ -1371,11 +1388,14 @@ export function Example() {
   },
   "colors/themableColors": {
     component: lazy(() => import("@/examples/colors/themableColors.tsx")),
-    code: `export function ColorsExample() {
+    code: `import { useTranslation } from "react-i18next";
+
+export function ColorsExample() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-xs flex-col items-center rounded border border-surface-100 bg-surface p-20 leading-6">
-      <span className="text-surface-500">Easy Peasy</span>
-      <span className="font-medium text-surface-900">Lemon Squeezy</span>
+      <span className="text-surface-500">{t("colors.easyPeasy")}</span>
+      <span className="font-medium text-surface-900">{t("colors.lemonSqueezy")}</span>
     </div>
   );
 }
@@ -1605,20 +1625,24 @@ export function Example() {
   "input/preview": {
     component: lazy(() => import("@/examples/input/preview.tsx")),
     code: `import { Input } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto max-w-sm text-left">
       <Input
         required
-        label="Label"
-        description="(description)"
-        placeholder="Placeholder"
-        helperText="Helper text"
+        label={t("form.label")}
+        description={t("form.description")}
+        placeholder={t("form.placeholder")}
+        helperText={t("form.helperText")}
       />
     </div>
   );
 }
+
+export default Example;
 `,
   },
   "kbd/example-1": {
@@ -1660,15 +1684,15 @@ export function Example() {
   "label/example-1": {
     component: lazy(() => import("@/examples/label/example-1.tsx")),
     code: `import { Label } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start text-start">
-      <Label description="description" required tooltip="Tooltip example">
-        Label
-      </Label>
+      <Label description={t("form.description")} required tooltip={t("form.tooltip")}>{t("form.label")}</Label>
 
-      <Label.Helper error>There are errors in your form.</Label.Helper>
+      <Label.Helper error>{t("form.errorsInForm")}</Label.Helper>
     </div>
   );
 }
@@ -1677,14 +1701,16 @@ export function Example() {
   "label/preview": {
     component: lazy(() => import("@/examples/label/preview.tsx")),
     code: `import { Label } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
-    <Label description="description" required tooltip="Tooltip example">
-      Label
-    </Label>
+    <Label description={t("form.description")} required tooltip={t("form.tooltip")}>{t("form.label")}</Label>
   );
 }
+
+export default Example;
 `,
   },
   "loading/example-1": {
@@ -1757,8 +1783,10 @@ export function Example() {
     code: `import * as React from "react";
 import { ChevronDownIcon, CopyIcon, DownloadIcon } from "@iconicicons/react";
 import { ButtonGroup, CheckboxGroup, Popover } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   const wrapper = React.useRef(null);
   const [container, setContainer] = React.useState<HTMLElement | null>(null);
 
@@ -1787,11 +1815,11 @@ export function Example() {
           {container ? (
             <Popover.Portal container={container}>
               <Popover.Content align="end" className="min-w-[130px]">
-                <CheckboxGroup label="Group Label">
-                  <CheckboxGroup.Item label="Option 1" />
-                  <CheckboxGroup.Item label="Option 2" />
-                  <CheckboxGroup.Item label="Option 3" />
-                  <CheckboxGroup.Item label="Option 4" />
+                <CheckboxGroup label={t("popover.groupLabel", "Group Label")}>
+                  <CheckboxGroup.Item label={t("popover.option1", "Option 1")} />
+                  <CheckboxGroup.Item label={t("popover.option2", "Option 2")} />
+                  <CheckboxGroup.Item label={t("popover.option3", "Option 3")} />
+                  <CheckboxGroup.Item label={t("popover.option4", "Option 4")} />
                 </CheckboxGroup>
               </Popover.Content>
             </Popover.Portal>
@@ -1807,22 +1835,24 @@ export function Example() {
     component: lazy(() => import("@/examples/popover/preview.tsx")),
     code: `import { ChevronDownIcon } from "@iconicicons/react";
 import { Button, CheckboxGroup, Popover } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <Popover>
       <Popover.Trigger asChild>
         <Button variant="tertiary" size="sm" after={<ChevronDownIcon />} shape="pill">
-          Show Popover
+          {t("popover.showPopover", "Show Popover")}
         </Button>
       </Popover.Trigger>
 
       <Popover.Content className="min-w-[140px]">
-        <CheckboxGroup label="Group Label">
-          <CheckboxGroup.Item label="Option 1" />
-          <CheckboxGroup.Item label="Option 2" />
-          <CheckboxGroup.Item label="Option 3" />
-          <CheckboxGroup.Item label="Option 4" />
+        <CheckboxGroup label={t("popover.groupLabel", "Group Label")}>
+          <CheckboxGroup.Item label={t("popover.option1", "Option 1")} />
+          <CheckboxGroup.Item label={t("popover.option2", "Option 2")} />
+          <CheckboxGroup.Item label={t("popover.option3", "Option 3")} />
+          <CheckboxGroup.Item label={t("popover.option4", "Option 4")} />
         </CheckboxGroup>
       </Popover.Content>
     </Popover>
@@ -2096,44 +2126,37 @@ export function Example() {
   "radio-group/example-1": {
     component: lazy(() => import("@/examples/radio-group/example-1.tsx")),
     code: `import { RadioGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto flex w-fit flex-col gap-8 text-left">
       {/* Example 1 */}
       <RadioGroup
         required
-        description="(description)"
-        helperText="Helper text"
-        label="Vertical"
-        tooltip="Tooltip example"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.vertical")}
+        tooltip={t("form.tooltip")}
       >
-        <RadioGroup.Item value="option-1" label="Option 1" />
-        <RadioGroup.Item value="option-2" label="Option 2" />
-        <RadioGroup.Item value="option-3" label="Option 3" />
-        <RadioGroup.Item
-          value="option-4"
-          description="(description)"
-          helperText="Helper text"
-          label="Option 4"
-          tooltip="Tooltip example"
-        >
-          children?
-        </RadioGroup.Item>
+        <RadioGroup.Item value="option-1" label={t("form.option1")} />
+        <RadioGroup.Item value="option-2" label={t("form.option2")} />
+        <RadioGroup.Item value="option-3" label={t("form.option3")} />
+        <RadioGroup.Item value="option-4" description={t("form.description")} helperText={t("form.helperText")} label={t("form.option4")} tooltip={t("form.tooltip")} >children?</RadioGroup.Item>
       </RadioGroup>
-
       {/* Example 2 */}
       <RadioGroup
         disabled
-        description="(disabled)"
-        helperText="Helper text"
-        label="Horizontal"
+        description={t("form.disabled")}
+        helperText={t("form.helperText")}
+        label={t("form.horizontal")}
         orientation="horizontal"
-        tooltip="Tooltip example"
+        tooltip={t("form.tooltip")}
       >
-        <RadioGroup.Item value="option-1" label="Option 1" />
-        <RadioGroup.Item value="option-2" label="Option 2" />
-        <RadioGroup.Item value="option-3" label="Option 3" />
+        <RadioGroup.Item value="option-1" label={t("form.option1")} />
+        <RadioGroup.Item value="option-2" label={t("form.option2")} />
+        <RadioGroup.Item value="option-3" label={t("form.option3")} />
       </RadioGroup>
     </div>
   );
@@ -2143,22 +2166,24 @@ export function Example() {
   "radio-group/preview": {
     component: lazy(() => import("@/examples/radio-group/preview.tsx")),
     code: `import { RadioGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto w-fit text-left">
       <RadioGroup
         defaultValue="value-1"
-        description="description"
-        helperText="Helper text"
-        label="Label"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
         required
-        tooltip="Tooltip example"
+        tooltip={t("form.tooltip")}
       >
-        <RadioGroup.Item label="Value 1" value="value-1" />
-        <RadioGroup.Item label="Value 2" value="value-2" />
-        <RadioGroup.Item label="Value 3" value="value-3" />
-        <RadioGroup.Item label="Value 4" value="value-4" />
+        <RadioGroup.Item label={t("form.value1", "Value 1")} value="value-1" />
+        <RadioGroup.Item label={t("form.value2", "Value 2")} value="value-2" />
+        <RadioGroup.Item label={t("form.value3", "Value 3")} value="value-3" />
+        <RadioGroup.Item label={t("form.value4", "Value 4")} value="value-4" />
       </RadioGroup>
     </div>
   );
@@ -2317,24 +2342,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   const wrapper = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={wrapper} className="inline-flex max-w-[192px] flex-col gap-10">
-      <Select label="Project status" tooltip="Tooltip example" required>
+      <Select label={t("select.projectStatus", "Project status")} tooltip={t("form.tooltip")} required>
         <SelectTrigger className="min-w-[192px]">
-          <SelectValue placeholder="Select status" />
+          <SelectValue placeholder={t("select.selectStatus", "Select status")} />
           <SelectIcon />
         </SelectTrigger>
-
         <SelectPortal container={wrapper.current}>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="overdue">Overdue</SelectItem>
-              <SelectItem value="due-this-week">Due this week</SelectItem>
-              <SelectItem value="upcoming">Upcoming</SelectItem>
+              <SelectItem value="overdue">{t("select.overdue", "Overdue")}</SelectItem>
+              <SelectItem value="due-this-week">{t("select.dueThisWeek", "Due this week")}</SelectItem>
+              <SelectItem value="upcoming">{t("select.upcoming", "Upcoming")}</SelectItem>
             </SelectGroup>
           </SelectContent>
         </SelectPortal>
@@ -2362,18 +2387,20 @@ export function Example() {
   "slider/example-2": {
     component: lazy(() => import("@/examples/slider/example-2.tsx")),
     code: `import { Slider } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col items-stretch gap-12">
       <Slider
         after="100"
         before="0"
-        content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        content={t("form.tooltipContent", "A tooltip is a small box that appears when hovering over a UI element, providing additional information.")}
         defaultValue={[50]}
-        description="(description)"
-        helperText="Helper text"
-        label="Label"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
         disabled
       />
     </div>
@@ -2387,31 +2414,26 @@ export function Example() {
 
 import { useState } from "react";
 import { Slider } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   const [value, setValue] = useState([2500, 5000]);
-
   return (
     <Slider
       after="$10,000"
       before="$1,000"
       defaultValue={[2500, 5000]}
-      label="Price Range"
+      label={t("form.priceRange")}
       max={10000}
       min={1000}
       showTooltip="hover"
       onValueChange={(val) => setValue(val)}
-      helperText={
-        "Selected range: $" +
-        value[0]?.toLocaleString("en-us") +
-        " - $" +
-        value[1]?.toLocaleString("en-us")
-      }
+      helperText={t("form.selectedRange", { min: value[0]?.toLocaleString("en-us"), max: value[1]?.toLocaleString("en-us") })}
       renderTooltip={(val) => {
         if (val) {
           return "$" + val.toLocaleString("en-US");
         }
-
         return "";
       }}
       step={100}
@@ -2491,15 +2513,17 @@ export function Example() {
     component: lazy(() => import("@/examples/slider/example-5.tsx")),
     code: `import { EmojiHappyIcon, EmojiSadIcon, MoonIcon, StarIcon, SunIcon } from "@iconicicons/react";
 import { Slider } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col gap-y-20">
       <Slider
         defaultValue={[5]}
-        description="(1-10)"
-        helperText="How happy are you with the level of service?"
-        label="Rating"
+        description={t("form.ratingRange", "(1-10)")}
+        helperText={t("form.howHappy")}
+        label={t("form.rating")}
         max={10}
         min={1}
         showTooltip="hover"
@@ -2521,12 +2545,18 @@ export function Example() {
         after={<SunIcon className="size-6 opacity-50" />}
         before={<MoonIcon className="size-6 opacity-50" />}
         defaultValue={[50]}
-        label="Brightness"
+        label={t("form.brightness")}
         max={100}
         min={1}
         showTooltip="always"
         renderTooltip={(val) =>
-          val <= 25 ? "Dark" : val <= 50 ? "Dim" : val <= 75 ? "Bright" : "Very Bright"
+          val <= 25
+            ? t("form.dark")
+            : val <= 50
+            ? t("form.dim")
+            : val <= 75
+            ? t("form.bright")
+            : t("form.veryBright")
         }
       />
 
@@ -2534,7 +2564,7 @@ export function Example() {
         after="$10,000"
         before="$1,000"
         defaultValue={[2500, 5000]}
-        label="Price Range"
+        label={t("form.priceRange")}
         max={10000}
         min={1000}
         renderTooltip={(val) => "$" + val.toLocaleString("en-US")}
@@ -2560,18 +2590,20 @@ export function Example() {
     component: lazy(() => import("@/examples/slider/preview.tsx")),
     code: `import { MinusIcon, PlusIcon } from "@iconicicons/react";
 import { Slider } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col gap-y-12 text-surface-300">
       <Slider
         after={<PlusIcon className="size-6 text-surface-300 dark:text-gray-500" />}
         before={<MinusIcon className="size-6 text-surface-300 dark:text-gray-500" />}
-        content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        content={t("form.tooltipContent", "A tooltip is a small box that appears when hovering over a UI element, providing additional information.")}
         defaultValue={[50]}
-        description="(description)"
-        helperText="Helper text"
-        label="Label"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
       />
     </div>
   );
@@ -2581,35 +2613,34 @@ export function Example() {
   "switch/example-1": {
     component: lazy(() => import("@/examples/switch/example-1.tsx")),
     code: `import { Switch } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-12">
       <div className="mx-auto flex max-w-fit flex-col items-start gap-6 text-start">
         {/* Example 1 */}
-        <Switch label="Label" tooltip="Tooltip example" />
-
+        <Switch label={t("form.label")} tooltip={t("form.tooltip")} />
         {/* Example 2 */}
         <Switch
-          description="(disabled)"
-          helperText="Helper text"
-          label="Label"
-          tooltip="Tooltip example"
+          description={t("form.disabled")}
+          helperText={t("form.helperText")}
+          label={t("form.label")}
+          tooltip={t("form.tooltip")}
           disabled
         />
       </div>
-
       <div className="mx-auto flex max-w-fit flex-col items-start gap-6 text-start">
         {/* Example 3 */}
-        <Switch alignLabel="start" label="Label" tooltip="Tooltip example" />
-
+        <Switch alignLabel="start" label={t("form.label")} tooltip={t("form.tooltip")} />
         {/* Example 4 */}
         <Switch
           alignLabel="start"
-          description="(disabled)"
-          helperText="Helper text"
-          label="Label"
-          tooltip="Tooltip example"
+          description={t("form.disabled")}
+          helperText={t("form.helperText")}
+          label={t("form.label")}
+          tooltip={t("form.tooltip")}
           disabled
         />
       </div>
@@ -2621,17 +2652,19 @@ export function Example() {
   "switch/preview": {
     component: lazy(() => import("@/examples/switch/preview.tsx")),
     code: `import { Switch } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <Switch
       required
       alignLabel="end"
-      description="(description)"
+      description={t("form.description", "(description)")}
       disabled={false}
-      helperText="Helper Text"
-      label="Label"
-      tooltip="Tooltip example"
+      helperText={t("form.helperText", "Helper Text")}
+      label={t("form.label", "Label")}
+      tooltip={t("form.tooltip", "Tooltip example")}
     />
   );
 }
@@ -2640,46 +2673,37 @@ export function Example() {
   "switch-group/example-1": {
     component: lazy(() => import("@/examples/switch-group/example-1.tsx")),
     code: `import { SwitchGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex w-fit flex-col gap-8 text-left">
       {/* Example 1 */}
       <SwitchGroup
         alignLabels="end"
-        description="(description)"
-        helperText="Helper text"
-        label="Group Label"
-        tooltip="Tooltip example"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.groupLabel")}
+        tooltip={t("form.tooltip")}
       >
-        <SwitchGroup.Item defaultChecked label="Option 1" />
-        <SwitchGroup.Item disabled label="Option 2" />
-        <SwitchGroup.Item label="Option 3" />
-        <SwitchGroup.Item
-          description="(description)"
-          helperText="Helper text"
-          label="Option 4"
-          tooltip="Tooltip example"
-        />
+        <SwitchGroup.Item defaultChecked label={t("form.option1")} />
+        <SwitchGroup.Item disabled label={t("form.option2")} />
+        <SwitchGroup.Item label={t("form.option3")} />
+        <SwitchGroup.Item description={t("form.description")} helperText={t("form.helperText")} label={t("form.option4")} tooltip={t("form.tooltip")} />
       </SwitchGroup>
-
       {/* Example 2 */}
       <SwitchGroup
         alignLabels="start"
-        description="(description)"
-        helperText="Helper text"
-        label="Group Label"
-        tooltip="Tooltip example"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.groupLabel")}
+        tooltip={t("form.tooltip")}
       >
-        <SwitchGroup.Item defaultChecked label="Option 1" />
-        <SwitchGroup.Item disabled label="Option 2" />
-        <SwitchGroup.Item label="Option 3" />
-        <SwitchGroup.Item
-          description="(description)"
-          helperText="Helper text"
-          label="Option 4"
-          tooltip="Tooltip example"
-        />
+        <SwitchGroup.Item defaultChecked label={t("form.option1")} />
+        <SwitchGroup.Item disabled label={t("form.option2")} />
+        <SwitchGroup.Item label={t("form.option3")} />
+        <SwitchGroup.Item description={t("form.description")} helperText={t("form.helperText")} label={t("form.option4")} tooltip={t("form.tooltip")} />
       </SwitchGroup>
     </div>
   );
@@ -2689,21 +2713,23 @@ export function Example() {
   "switch-group/preview": {
     component: lazy(() => import("@/examples/switch-group/preview.tsx")),
     code: `import { SwitchGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto w-fit text-left">
       <SwitchGroup
         alignLabels="end"
-        description="(description)"
-        helperText="Helper text"
-        label="Group Label"
-        tooltip="Tooltip example"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.groupLabel")}
+        tooltip={t("form.tooltip")}
       >
-        <SwitchGroup.Item label="Option 1" />
-        <SwitchGroup.Item label="Option 2" />
-        <SwitchGroup.Item label="Option 3" />
-        <SwitchGroup.Item label="Option 4" />
+        <SwitchGroup.Item label={t("form.option1")} />
+        <SwitchGroup.Item label={t("form.option2")} />
+        <SwitchGroup.Item label={t("form.option3")} />
+        <SwitchGroup.Item label={t("form.option4")} />
       </SwitchGroup>
     </div>
   );
@@ -2714,170 +2740,105 @@ export function Example() {
     component: lazy(() => import("@/examples/tabs/example-1.tsx")),
     code: `import { BoxIcon, ClockIcon, SpinnerIcon } from "@iconicicons/react";
 import { Badge, Tabs } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto flex w-fit max-w-full flex-col gap-10 overflow-scroll p-2 text-left">
       {/* Example 1 */}
       <Tabs variant="underlined" defaultValue="actions">
         <Tabs.List>
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                24
-              </Badge>
-            }
+            after={<Badge stroke size="sm" shape="pill">24</Badge>}
             value="actions"
             before={<SpinnerIcon />}
           >
-            In progress
+            {t("tabs.inProgress")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                19
-              </Badge>
-            }
-            before={<BoxIcon className="text-wg-green" />}
-            value="Shipped"
+            after={<Badge stroke size="sm" shape="pill">19</Badge>}
+            before={<BoxIcon className="text-wg-green" />} value="Shipped"
           >
-            Shipped
+            {t("tabs.shipped")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                3
-              </Badge>
-            }
-            before={<ClockIcon className="text-wg-red" />}
-            value="delayed"
+            after={<Badge stroke size="sm" shape="pill">3</Badge>}
+            before={<ClockIcon className="text-wg-red" />} value="delayed"
           >
-            Security
+            {t("tabs.security")}
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs>
-
       {/* Example 2 */}
       <Tabs variant="contained-bottom" defaultValue="actions">
         <Tabs.List>
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                24
-              </Badge>
-            }
+            after={<Badge stroke size="sm" shape="pill">24</Badge>}
             value="actions"
             before={<SpinnerIcon />}
           >
-            In progress
+            {t("tabs.inProgress")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                19
-              </Badge>
-            }
-            before={<BoxIcon className="text-wg-green" />}
-            value="Shipped"
+            after={<Badge stroke size="sm" shape="pill">19</Badge>}
+            before={<BoxIcon className="text-wg-green" />} value="Shipped"
           >
-            Shipped
+            {t("tabs.shipped")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                3
-              </Badge>
-            }
-            before={<ClockIcon className="text-wg-red" />}
-            value="delayed"
+            after={<Badge stroke size="sm" shape="pill">3</Badge>}
+            before={<ClockIcon className="text-wg-red" />} value="delayed"
           >
-            Security
+            {t("tabs.security")}
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs>
-
       {/* Example 3 */}
       <Tabs variant="fill" defaultValue="actions">
         <Tabs.List>
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                24
-              </Badge>
-            }
+            after={<Badge stroke size="sm" shape="pill">24</Badge>}
             value="actions"
             before={<SpinnerIcon />}
           >
-            In progress
+            {t("tabs.inProgress")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                19
-              </Badge>
-            }
-            before={<BoxIcon className="text-wg-green" />}
-            value="Shipped"
+            after={<Badge stroke size="sm" shape="pill">19</Badge>}
+            before={<BoxIcon className="text-wg-green" />} value="Shipped"
           >
-            Shipped
+            {t("tabs.shipped")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                3
-              </Badge>
-            }
-            before={<ClockIcon className="text-wg-red" />}
-            value="delayed"
+            after={<Badge stroke size="sm" shape="pill">3</Badge>}
+            before={<ClockIcon className="text-wg-red" />} value="delayed"
           >
-            Security
+            {t("tabs.security")}
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs>
-
       {/* Example 4 */}
       <Tabs variant="contained-top" defaultValue="actions">
         <Tabs.List>
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                24
-              </Badge>
-            }
+            after={<Badge stroke size="sm" shape="pill">24</Badge>}
             value="actions"
             before={<SpinnerIcon />}
           >
-            In progress
+            {t("tabs.inProgress")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                19
-              </Badge>
-            }
-            before={<BoxIcon className="text-wg-green" />}
-            value="Shipped"
+            after={<Badge stroke size="sm" shape="pill">19</Badge>}
+            before={<BoxIcon className="text-wg-green" />} value="Shipped"
           >
-            Shipped
+            {t("tabs.shipped")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge stroke size="sm" shape="pill">
-                3
-              </Badge>
-            }
-            before={<ClockIcon className="text-wg-red" />}
-            value="delayed"
+            after={<Badge stroke size="sm" shape="pill">3</Badge>}
+            before={<ClockIcon className="text-wg-red" />} value="delayed"
           >
-            Security
+            {t("tabs.security")}
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs>
@@ -2889,27 +2850,25 @@ export function Example() {
   "tabs/example-2": {
     component: lazy(() => import("@/examples/tabs/example-2.tsx")),
     code: `import { Badge, Tabs, Tooltip } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto flex w-fit max-w-full flex-col gap-10 overflow-scroll p-2 text-left">
       {/* Example 1 */}
       <Tabs variant="contained-top" defaultValue="examples">
         <Tabs.List>
-          <Tabs.Trigger value="examples">Examples</Tabs.Trigger>
+          <Tabs.Trigger value="examples">{t("tabs.examples")}</Tabs.Trigger>
           <Tabs.Trigger
             value="usage"
-            after={
-              <Badge size="sm" color="yellow">
-                New
-              </Badge>
-            }
+            after={<Badge size="sm" color="yellow">{t("tabs.new")}</Badge>}
           >
-            Usage
+            {t("tabs.usage")}
           </Tabs.Trigger>
-          <Tooltip content="Tooltip example">
-            <Tabs.Trigger value="playground" disabled after={<Badge size="sm">Pro</Badge>}>
-              Playground
+          <Tooltip content={t("form.tooltip")}>
+            <Tabs.Trigger value="playground" disabled after={<Badge size="sm">{t("tabs.pro")}</Badge>}>
+              {t("tabs.playground")}
             </Tabs.Trigger>
           </Tooltip>
         </Tabs.List>
@@ -2925,6 +2884,7 @@ export function Example() {
     code: `import * as React from "react";
 import { ArrowDownRightIcon, ArrowUpRightIcon } from "@iconicicons/react";
 import { Badge, Tabs } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 function IconUS() {
   return (
@@ -3021,128 +2981,86 @@ function IconUK() {
 }
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="grid gap-10">
       <Tabs variant="underlined" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
-
       {/* Example 2 */}
       <Tabs variant="contained-bottom" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
-
       {/* Example 3 */}
       <Tabs variant="fill" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
-
       {/* Example 4 */}
       <Tabs variant="contained-top" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
     </div>
@@ -3154,28 +3072,30 @@ export function Example() {
     component: lazy(() => import("@/examples/tabs/preview.tsx")),
     code: `import { BookIcon, LockIcon, VideoIcon } from "@iconicicons/react";
 import { Tabs } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto w-fit text-left">
       <Tabs variant="contained-bottom" defaultValue="actions">
         <Tabs.List>
           <Tabs.Trigger before={<VideoIcon />} value="actions">
-            Actions
+            {t("tabs.actions", "Actions")}
           </Tabs.Trigger>
 
           <Tabs.Trigger before={<BookIcon />} value="wiki">
-            Wiki
+            {t("tabs.wiki", "Wiki")}
           </Tabs.Trigger>
 
           <Tabs.Trigger before={<LockIcon />} value="security">
-            Security
+            {t("tabs.security")}
           </Tabs.Trigger>
         </Tabs.List>
 
-        <Tabs.Content value="actions">Actions tab content</Tabs.Content>
-        <Tabs.Content value="wiki">Wiki tab content</Tabs.Content>
-        <Tabs.Content value="security">Security tab content</Tabs.Content>
+        <Tabs.Content value="actions">{t("tabs.actionsTabContent", "Actions tab content")}</Tabs.Content>
+        <Tabs.Content value="wiki">{t("tabs.wikiTabContent", "Wiki tab content")}</Tabs.Content>
+        <Tabs.Content value="security">{t("tabs.securityTabContent", "Security tab content")}</Tabs.Content>
       </Tabs>
     </div>
   );
@@ -3187,30 +3107,26 @@ export function Example() {
     code: `import * as React from "react";
 import { BookIcon, FileIcon, FolderIcon, TrashIcon } from "@iconicicons/react";
 import { Avatar, Tag } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start gap-4">
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag closable>Pineapple</Tag>
+        <Tag closable>{t("tag.pineapple")}</Tag>
 
-        <Tag color="yellow" closable stroke>
-          Lemons
-        </Tag>
+        <Tag color="yellow" closable stroke>{t("tag.lemons")}</Tag>
 
-        <Tag closable>Watermelon</Tag>
+        <Tag closable>{t("tag.watermelon")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag before={<DotIcon />} color="green">
-          Online
-        </Tag>
+        <Tag before={<DotIcon />} color="green">{t("tag.online")}</Tag>
 
-        <Tag before={<DotIcon />} color="red">
-          Offline
-        </Tag>
+        <Tag before={<DotIcon />} color="red">{t("tag.offline")}</Tag>
 
-        <Tag before={<DotIcon className="text-surface-300" />}>Suspended</Tag>
+        <Tag before={<DotIcon className="text-surface-300" />}>{t("tag.suspended")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
@@ -3220,7 +3136,7 @@ export function Example() {
           shape="pill"
           stroke
         >
-          @ormanclark
+          {t("tag.ormanclark")}
         </Tag>
 
         <Tag
@@ -3229,68 +3145,42 @@ export function Example() {
           shape="pill"
           stroke
         >
-          Lemon Squeezy
+          {t("tag.lemonSqueezy")}
         </Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag before={<FolderIcon />} color="blue" closable>
-          Folders
-        </Tag>
+        <Tag before={<FolderIcon />} color="blue" closable>{t("tag.folders")}</Tag>
 
-        <Tag before={<FileIcon />} color="blue">
-          Files
-        </Tag>
+        <Tag before={<FileIcon />} color="blue">{t("tag.files")}</Tag>
 
-        <Tag before={<BookIcon />} color="blue" closable>
-          Guides
-        </Tag>
+        <Tag before={<BookIcon />} color="blue" closable>{t("tag.guides")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag color="yellow" closable stroke>
-          New
-        </Tag>
+        <Tag color="yellow" closable stroke>{t("tag.new")}</Tag>
 
-        <Tag color="orange" closable stroke>
-          Pending
-        </Tag>
+        <Tag color="orange" closable stroke>{t("tag.pending")}</Tag>
 
-        <Tag color="green" closable stroke>
-          Active
-        </Tag>
+        <Tag color="green" closable stroke>{t("tag.active")}</Tag>
 
-        <Tag color="red" closable stroke>
-          Closed
-        </Tag>
+        <Tag color="red" closable stroke>{t("tag.closed")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag color="primary" closable shape="pill">
-          Free parking
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.freeParking")}</Tag>
 
-        <Tag color="primary" closable shape="pill">
-          Pool
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.pool")}</Tag>
 
-        <Tag color="primary" closable shape="pill">
-          Free WiFi
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.freeWifi")}</Tag>
 
-        <Tag color="primary" closable shape="pill">
-          Gym
-        </Tag>
+        <Tag color="primary" closable shape="pill">{t("tag.gym")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
-        <Tag before={<UKFlagIcon />} closable>
-          United Kingdom
-        </Tag>
+        <Tag before={<UKFlagIcon />} closable>{t("tag.unitedKingdom")}</Tag>
 
-        <Tag before={<USFlagIcon />} closable>
-          United States
-        </Tag>
+        <Tag before={<USFlagIcon />} closable>{t("tag.unitedStates")}</Tag>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
@@ -3303,7 +3193,7 @@ export function Example() {
           size="sm"
           stroke
         >
-          ux
+          {t("tag.ux")}
         </Tag>
 
         <Tag
@@ -3315,7 +3205,7 @@ export function Example() {
           size="sm"
           stroke
         >
-          ui
+          {t("tag.ui")}
         </Tag>
 
         <Tag
@@ -3327,7 +3217,7 @@ export function Example() {
           size="sm"
           stroke
         >
-          motion
+          {t("tag.motion")}
         </Tag>
 
         <Tag
@@ -3339,7 +3229,7 @@ export function Example() {
           size="sm"
           stroke
         >
-          graphics
+          {t("tag.graphics")}
         </Tag>
       </div>
     </div>
@@ -3457,8 +3347,10 @@ const DotIcon = React.forwardRef<SVGSVGElement, React.SVGAttributes<SVGSVGElemen
   "tag/preview": {
     component: lazy(() => import("@/examples/tag/preview.tsx")),
     code: `import { Tag } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <Tag
       closable
@@ -3468,7 +3360,7 @@ export function Example() {
         alert("Custom onClose callback with preventDefault()");
       }}
     >
-      Tag
+      {t("tag.tag", "Tag")}
     </Tag>
   );
 }
@@ -3477,18 +3369,20 @@ export function Example() {
   "textarea/example-1": {
     component: lazy(() => import("@/examples/textarea/example-1.tsx")),
     code: `import { Textarea } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto max-w-sm text-left">
       <Textarea
         destructive
         required
-        description="(description)"
-        helperText="Helper text"
-        label="Label"
-        placeholder="Placeholder"
-        tooltip="Tooltip example"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
+        placeholder={t("form.placeholder")}
+        tooltip={t("form.tooltip")}
         className="max-h-64"
       />
     </div>
@@ -3499,24 +3393,26 @@ export function Example() {
   "textarea/example-2": {
     component: lazy(() => import("@/examples/textarea/example-2.tsx")),
     code: `import { Textarea } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto flex max-w-sm flex-col gap-10 text-left">
       <Textarea
         className="resize-none"
-        placeholder="Placeholder"
-        label="Label"
-        tooltip="Hello world"
-        value="Value in disabled state"
+        placeholder={t("form.placeholder")}
+        label={t("form.label")}
+        tooltip={t("form.tooltip")}
+        value={t("form.valueDisabled")}
         disabled
       />
 
       <Textarea
         className="resize-none"
-        description="(description)"
-        helperText="Helper text"
-        label="Label"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
       />
     </div>
   );
@@ -3526,11 +3422,13 @@ export function Example() {
   "textarea/preview": {
     component: lazy(() => import("@/examples/textarea/preview.tsx")),
     code: `import { Textarea } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto max-w-sm text-left">
-      <Textarea label="Label" placeholder="Placeholder" />
+      <Textarea label={t("form.label")} placeholder={t("form.placeholder")} />
     </div>
   );
 }

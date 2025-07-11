@@ -9,24 +9,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
-export default function Example() {
+export function Example() {
+  const { t } = useTranslation();
   const wrapper = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={wrapper} className="inline-flex max-w-[192px] flex-col gap-10">
-      <Select label="Project status" tooltip="Tooltip example" required>
+      <Select label={t("select.projectStatus", "Project status")} tooltip={t("form.tooltip")} required>
         <SelectTrigger className="min-w-[192px]">
-          <SelectValue placeholder="Select status" />
+          <SelectValue placeholder={t("select.selectStatus", "Select status")} />
           <SelectIcon />
         </SelectTrigger>
-
         <SelectPortal container={wrapper.current}>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="overdue">Overdue</SelectItem>
-              <SelectItem value="due-this-week">Due this week</SelectItem>
-              <SelectItem value="upcoming">Upcoming</SelectItem>
+              <SelectItem value="overdue">{t("select.overdue", "Overdue")}</SelectItem>
+              <SelectItem value="due-this-week">{t("select.dueThisWeek", "Due this week")}</SelectItem>
+              <SelectItem value="upcoming">{t("select.upcoming", "Upcoming")}</SelectItem>
             </SelectGroup>
           </SelectContent>
         </SelectPortal>

@@ -1,6 +1,8 @@
 import { Tag } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
-export default function Example() {
+export function Example() {
+  const { t } = useTranslation();
   return (
     <Tag
       closable
@@ -10,7 +12,7 @@ export default function Example() {
         alert("Custom onClose callback with preventDefault()");
       }}
     >
-      Tag
+      {t("tag.tag", "Tag")}
     </Tag>
   );
 }

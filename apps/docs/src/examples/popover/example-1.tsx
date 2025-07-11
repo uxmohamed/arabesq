@@ -1,8 +1,10 @@
 import * as React from "react";
 import { ChevronDownIcon, CopyIcon, DownloadIcon } from "@iconicicons/react";
 import { ButtonGroup, CheckboxGroup, Popover } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   const wrapper = React.useRef(null);
   const [container, setContainer] = React.useState<HTMLElement | null>(null);
 
@@ -31,11 +33,11 @@ export default function Example() {
           {container ? (
             <Popover.Portal container={container}>
               <Popover.Content align="end" className="min-w-[130px]">
-                <CheckboxGroup label="Group Label">
-                  <CheckboxGroup.Item label="Option 1" />
-                  <CheckboxGroup.Item label="Option 2" />
-                  <CheckboxGroup.Item label="Option 3" />
-                  <CheckboxGroup.Item label="Option 4" />
+                <CheckboxGroup label={t("popover.groupLabel", "Group Label")}>
+                  <CheckboxGroup.Item label={t("popover.option1", "Option 1")} />
+                  <CheckboxGroup.Item label={t("popover.option2", "Option 2")} />
+                  <CheckboxGroup.Item label={t("popover.option3", "Option 3")} />
+                  <CheckboxGroup.Item label={t("popover.option4", "Option 4")} />
                 </CheckboxGroup>
               </Popover.Content>
             </Popover.Portal>

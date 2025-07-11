@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ArrowDownRightIcon, ArrowUpRightIcon } from "@iconicicons/react";
 import { Badge, Tabs } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 function IconUS() {
   return (
@@ -97,128 +98,86 @@ function IconUK() {
 }
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="grid gap-10">
       <Tabs variant="underlined" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
-
       {/* Example 2 */}
       <Tabs variant="contained-bottom" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
-
       {/* Example 3 */}
       <Tabs variant="fill" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
-
       {/* Example 4 */}
       <Tabs variant="contained-top" defaultValue="united-states">
         <Tabs.List stretch>
           <Tabs.Trigger
-            after={
-              <Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>
-                99
-              </Badge>
-            }
+            after={<Badge color="green" size="sm" shape="pill" before={<ArrowUpRightIcon />}>99</Badge>}
             before={<IconUS />}
             value="united-states"
           >
-            United States
+            {t("tabs.unitedStates")}
           </Tabs.Trigger>
-
           <Tabs.Trigger
-            after={
-              <Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">
-                13
-              </Badge>
-            }
+            after={<Badge before={<ArrowDownRightIcon />} color="red" shape="pill" size="sm">13</Badge>}
             before={<IconUK />}
             value="united-kingdom"
           >
-            United Kingdom
+            {t("tabs.unitedKingdom")}
           </Tabs.Trigger>
         </Tabs.List>
-
         {/* Add Tabs.Content for each trigger/tab */}
       </Tabs>
     </div>

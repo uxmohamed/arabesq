@@ -18,21 +18,23 @@ import {
   WifiIcon,
 } from "@iconicicons/react";
 import { Avatar, Badge } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start gap-4">
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<CheckIcon />} color="green" shape="pill">
-          Paid
+          {t("badge.paid")}
         </Badge>
 
         <Badge before={<CheckIcon />} color="green" stroke>
-          Active
+          {t("badge.active")}
         </Badge>
 
         <Badge before={<CheckIcon />} color="green" shape="pill">
-          Paid
+          {t("badge.paid")}
         </Badge>
 
         <Badge before={<CheckIcon />} color="green" stroke shape="pill">
@@ -42,109 +44,109 @@ export default function Example() {
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<CloseIcon />} color="red" shape="pill">
-          Rejected
+          {t("badge.rejected")}
         </Badge>
 
         <Badge before={<CloseIcon />} color="red" stroke>
-          Chargeback
+          {t("badge.chargeback")}
         </Badge>
 
         <Badge before={<MinusIcon />} color="red" shape="pill" stroke>
-          Disconnected
+          {t("badge.disconnected")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<CloseIcon />} shape="pill">
-          Void
+          {t("badge.void")}
         </Badge>
 
         <Badge before={<CloseIcon />} stroke>
-          Expired
+          {t("badge.expired")}
         </Badge>
 
-        <Badge before={<CloseIcon />}>Draft</Badge>
+        <Badge before={<CloseIcon />}>{t("badge.draft")}</Badge>
 
         <Badge before={<DotIcon className="text-wg-green" />} shape="pill" stroke>
-          Online
+          {t("badge.online")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<SpinnerIcon />} color="blue" shape="pill">
-          Processing
+          {t("badge.processing")}
         </Badge>
 
         <Badge before={<FlagIcon />} color="blue" stroke>
-          Flagged
+          {t("badge.flagged")}
         </Badge>
 
         <Badge color="blue" shape="pill" stroke>
-          Washington D.C.
+          {t("badge.washingtonDC")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge color="pink" shape="pill">
-          Special
+          {t("badge.special")}
         </Badge>
 
         <Badge color="pink" stroke>
-          Trial
+          {t("badge.trial")}
         </Badge>
 
         <Badge before={<BookmarkIcon />} color="pink">
-          Bookmarked
+          {t("badge.bookmarked")}
         </Badge>
 
         <Badge before={<HashtagIcon />} color="pink" shape="pill" stroke>
-          Live
+          {t("badge.live")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<UndoIcon />} color="yellow" shape="pill">
-          Moved
+          {t("badge.moved")}
         </Badge>
 
         <Badge color="yellow" stroke>
-          New
+          {t("badge.new")}
         </Badge>
 
         <Badge before={<ShieldTickIcon />} color="yellow">
-          Secure
+          {t("badge.secure")}
         </Badge>
 
         <Badge before={<LockIcon />} color="yellow" shape="pill" stroke>
-          Locked
+          {t("badge.locked")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge color="orange" shape="pill">
-          Beta
+          {t("badge.beta")}
         </Badge>
 
         <Badge before={<EmojiHappyIcon />} color="orange" stroke>
-          Hello!
+          {t("badge.hello")}
         </Badge>
 
         <Badge before={<PlayIcon />} color="orange">
-          1m 30s
+          {t("badge.oneMinuteThirty")}
         </Badge>
 
         <Badge before={<PinIcon />} color="orange" shape="pill" stroke>
-          Pinned
+          {t("badge.pinned")}
         </Badge>
 
         <Badge color="orange" shape="pill" stroke>
-          4
+          {t("badge.four")}
         </Badge>
       </div>
 
       <div className="flex flex-wrap items-center justify-start gap-4">
         <Badge before={<HeartIcon />} color="primary" shape="pill">
-          Design Systems
+          {t("badge.designSystems")}
         </Badge>
 
         <Badge
@@ -152,11 +154,11 @@ export default function Example() {
           color="primary"
           shape="pill"
         >
-          @ormanclark
+          {t("badge.ormanclark")}
         </Badge>
 
         <Badge before={<WifiIcon />} color="primary" shape="pill">
-          Free Wi-Fi
+          {t("badge.freeWifi")}
         </Badge>
       </div>
     </div>
@@ -164,6 +166,7 @@ export default function Example() {
 }
 
 export function Example2() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit flex-col items-start gap-4">
       <Badge
@@ -171,48 +174,48 @@ export function Example2() {
           <span className="flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:bg-wg-green before:content-['']" />
         }
       >
-        Online
+        {t("badge.online")}
       </Badge>
 
       <Badge before={<SpinnerIcon />} color="blue" shape="pill">
-        Processing
+        {t("badge.processing")}
       </Badge>
 
       <Badge before={<FlagIcon />} color="blue" stroke>
-        Flagged
+        {t("badge.flagged")}
       </Badge>
 
       <Badge color="blue" shape="pill" stroke>
-        Washington D.C.
+        {t("badge.washingtonDC")}
       </Badge>
 
       <Badge color="red" shape="pill">
-        4
+        {t("badge.four")}
       </Badge>
 
       <Badge before={<PinTackIcon />} color="yellow" stroke>
-        Pinned
+        {t("badge.pinned")}
       </Badge>
 
       <Badge before={<PlayIcon />} color="pink" shape="pill">
-        1m 30s
+        {t("badge.oneMinuteThirty")}
       </Badge>
 
       <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
         <Badge color="green" size="sm" shape="pill" stroke>
-          New York City
+          {t("badge.newYorkCity")}
         </Badge>
 
         <Badge color="orange" size="sm" shape="pill">
-          1
+          {t("badge.one")}
         </Badge>
 
         <Badge before={<PinTackIcon />} size="sm" color="yellow" stroke>
-          Pinned
+          {t("badge.pinned")}
         </Badge>
 
         <Badge before={<PlayIcon />} size="sm" color="pink" shape="pill">
-          1m 30s
+          {t("badge.oneMinuteThirty")}
         </Badge>
       </div>
     </div>

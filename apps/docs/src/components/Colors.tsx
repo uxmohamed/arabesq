@@ -1,4 +1,7 @@
+"use client";
+
 import { forwardRef, type HTMLAttributes } from "react";
+import { useTranslation } from "react-i18next";
 
 import { cn } from "@/lib/utils";
 
@@ -8,11 +11,12 @@ const ColorsWedges = forwardRef<
     title: string;
   }
 >(({ className, children, title, ...otherProps }, ref) => {
+  const { t } = useTranslation();
   return (
     <div className="my-8">
       {title ? (
         <div className="mb-3 mt-2 flex items-center gap-2 text-sm font-medium text-surface-900">
-          <span>{title}</span>
+          <span>{t(`colors.${title}`, title)}</span>
           <span className="select-none text-xs text-surface-200">•</span>
           <span className="not-prose font-mono text-xs text-surface-500">{`wg-${title.toLowerCase()}`}</span>
         </div>
@@ -32,6 +36,7 @@ const Color = forwardRef<
     hex: string;
   }
 >(({ className, title, hex, ...otherProps }, ref) => {
+  const { t } = useTranslation();
   return (
     <div className="group flex w-full flex-col">
       <div
@@ -40,7 +45,7 @@ const Color = forwardRef<
         {...otherProps}
       />
 
-      <span className="mt-1 pl-1 text-center text-xs text-surface-700 md:text-start">{title}</span>
+      <span className="mt-1 pl-1 text-center text-xs text-surface-700 md:text-start">{t(`colors.${title}`, title)}</span>
       <span className="hidden pl-1 font-mono text-[9px] text-surface-400 md:block">{hex}</span>
     </div>
   );
@@ -53,6 +58,7 @@ const ColorThemable = forwardRef<
     hex: string;
   }
 >(({ className, title, hex, ...otherProps }, ref) => {
+  const { t } = useTranslation();
   return (
     <div className="group flex w-full flex-col">
       <div
@@ -61,7 +67,7 @@ const ColorThemable = forwardRef<
         {...otherProps}
       />
 
-      <span className="mt-1.5 pl-1 text-xs text-surface-700">{title}</span>
+      <span className="mt-1.5 pl-1 text-xs text-surface-700">{t(`colors.${title}`, title)}</span>
       {hex && <span className="pl-1 font-mono text-[9px] text-surface-400">{hex}</span>}
     </div>
   );

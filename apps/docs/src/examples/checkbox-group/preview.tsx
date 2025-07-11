@@ -1,19 +1,21 @@
 import { CheckboxGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
-export default function Example() {
+export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto w-fit text-left">
       <CheckboxGroup
-        description="description"
-        helperText="Helper text"
-        label="Label"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.label")}
         required
-        tooltip="Tooltip example"
+        tooltip={t("form.tooltip")}
       >
-        <CheckboxGroup.Item label="Option 1" />
-        <CheckboxGroup.Item label="Option 2" />
-        <CheckboxGroup.Item label="Option 3" />
-        <CheckboxGroup.Item label="Option 4" />
+        <CheckboxGroup.Item label={t("form.option1")} />
+        <CheckboxGroup.Item label={t("form.option2")} />
+        <CheckboxGroup.Item label={t("form.option3")} />
+        <CheckboxGroup.Item label={t("form.option4")} />
       </CheckboxGroup>
     </div>
   );

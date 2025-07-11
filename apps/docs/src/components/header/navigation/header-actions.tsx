@@ -1,10 +1,14 @@
+"use client";
+
 import { Button } from "@lemonsqueezy/wedges";
 
 import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 export function HeaderActions() {
+  const { t } = useTranslation();
   return (
     <nav aria-label="Actions" className="justify-self-end">
       <ul className="flex items-center gap-6">
@@ -16,7 +20,7 @@ export function HeaderActions() {
               "shrink-0 text-nowrap text-white/60 outline-white duration-100 hover:text-white"
             )}
           >
-            Sign in
+            {t("header.signIn", "Sign in")}
           </a>
         </li>
 
@@ -27,7 +31,7 @@ export function HeaderActions() {
             shape="pill"
           >
             <a href={siteConfig.getStartedURL}>
-              Get started{" "}
+              {t("header.getStarted", "Get started")}
               <span className="duration-180 transition-transform group-hover:translate-x-2">→</span>
             </a>
           </Button>

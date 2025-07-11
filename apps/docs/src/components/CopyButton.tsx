@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Tooltip } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 import { cn } from "@/lib/utils";
 
@@ -12,6 +13,7 @@ type CopyButtonProps = {
 
 export function CopyButton({ className, content }: CopyButtonProps) {
   const [isCopied, setIsCopied] = useState(false);
+  const { t } = useTranslation();
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(content);
@@ -24,10 +26,10 @@ export function CopyButton({ className, content }: CopyButtonProps) {
 
   return (
     <div data-theme="dark">
-      <Tooltip className="font-sans" content="Copied" open={isCopied} side="left">
+      <Tooltip className="font-sans" content={t("button.copied", "Copied")} open={isCopied} side="left">
         <Button
           isIconOnly
-          aria-label="Copy code to clipboard"
+          aria-label={t("button.copyToClipboard", "Copy code to clipboard")}
           className={cn(
             "wg-copy-button size-7 [&_svg]:size-4",
             className,

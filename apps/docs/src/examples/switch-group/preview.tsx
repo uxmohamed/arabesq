@@ -1,19 +1,21 @@
 import { SwitchGroup } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
-export default function Example() {
+export function Example() {
+  const { t } = useTranslation();
   return (
     <div className="m-auto w-fit text-left">
       <SwitchGroup
         alignLabels="end"
-        description="(description)"
-        helperText="Helper text"
-        label="Group Label"
-        tooltip="Tooltip example"
+        description={t("form.description")}
+        helperText={t("form.helperText")}
+        label={t("form.groupLabel")}
+        tooltip={t("form.tooltip")}
       >
-        <SwitchGroup.Item label="Option 1" />
-        <SwitchGroup.Item label="Option 2" />
-        <SwitchGroup.Item label="Option 3" />
-        <SwitchGroup.Item label="Option 4" />
+        <SwitchGroup.Item label={t("form.option1")} />
+        <SwitchGroup.Item label={t("form.option2")} />
+        <SwitchGroup.Item label={t("form.option3")} />
+        <SwitchGroup.Item label={t("form.option4")} />
       </SwitchGroup>
     </div>
   );

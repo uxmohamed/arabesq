@@ -1,7 +1,9 @@
 import { PlusIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="mx-auto flex max-w-fit items-start gap-10">
       <div className="flex flex-col gap-4">
@@ -15,27 +17,27 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />}>
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link">
-          Button
+          {t("button.label", "Button")}
         </Button>
       </div>
 
@@ -50,27 +52,27 @@ export default function Example() {
 
       <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" shape="pill">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" shape="pill">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" shape="pill">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" shape="pill">
-          Button
+          {t("button.label", "Button")}
         </Button>
 
         <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill">
-          Button
+          {t("button.label", "Button")}
         </Button>
       </div>
     </div>

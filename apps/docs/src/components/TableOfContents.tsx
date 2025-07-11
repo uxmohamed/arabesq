@@ -4,17 +4,19 @@ import { type TOCItem } from "@/types/mdx";
 import { extractFlatIds, extractTOC } from "@/lib/mdx/toc";
 import { cn } from "@/lib/utils";
 import { useActiveItem } from "@/hooks/useActiveMenu";
+import { useTranslation } from "react-i18next";
 
 export function TableOfContents({ source }: { source: string }) {
   const toc = extractTOC(source);
   const ids = extractFlatIds(toc);
   const activeItemId = useActiveItem(ids);
+  const { t } = useTranslation();
 
   if (toc.length === 0) return null;
 
   return (
     <div className="leadning-6 sticky top-[152px] hidden space-y-4 self-start text-sm xl:block">
-      <h2 className="not-prose text-sm font-medium text-surface-900">On this page</h2>
+      <h2 className="not-prose text-sm font-medium text-surface-900">{t("toc.onThisPage", "On this page")}</h2>
       <Items activeItemId={activeItemId} items={toc} />
     </div>
   );
@@ -28,6 +30,7 @@ type TreeProps = {
 };
 
 function Items({ items, activeItemId, className, sub }: TreeProps) {
+  const { t } = useTranslation();
   if (!items) {
     return null;
   }
@@ -50,7 +53,7 @@ function Items({ items, activeItemId, className, sub }: TreeProps) {
               )}
               href={item.url}
             >
-              {sub ? "→ " : null}
+              {sub ? t("toc.arrow", "→ ") : null}
               {item.title}
             </a>
 

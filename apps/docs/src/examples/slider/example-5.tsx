@@ -1,14 +1,16 @@
 import { EmojiHappyIcon, EmojiSadIcon, MoonIcon, StarIcon, SunIcon } from "@iconicicons/react";
 import { Slider } from "@lemonsqueezy/wedges";
+import { useTranslation } from "react-i18next";
 
 export default function Example() {
+  const { t } = useTranslation();
   return (
     <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col gap-y-20">
       <Slider
         defaultValue={[5]}
-        description="(1-10)"
-        helperText="How happy are you with the level of service?"
-        label="Rating"
+        description={t("form.ratingRange", "(1-10)")}
+        helperText={t("form.howHappy")}
+        label={t("form.rating")}
         max={10}
         min={1}
         showTooltip="hover"
@@ -30,12 +32,18 @@ export default function Example() {
         after={<SunIcon className="size-6 opacity-50" />}
         before={<MoonIcon className="size-6 opacity-50" />}
         defaultValue={[50]}
-        label="Brightness"
+        label={t("form.brightness")}
         max={100}
         min={1}
         showTooltip="always"
         renderTooltip={(val) =>
-          val <= 25 ? "Dark" : val <= 50 ? "Dim" : val <= 75 ? "Bright" : "Very Bright"
+          val <= 25
+            ? t("form.dark")
+            : val <= 50
+            ? t("form.dim")
+            : val <= 75
+            ? t("form.bright")
+            : t("form.veryBright")
         }
       />
 
@@ -43,7 +51,7 @@ export default function Example() {
         after="$10,000"
         before="$1,000"
         defaultValue={[2500, 5000]}
-        label="Price Range"
+        label={t("form.priceRange")}
         max={10000}
         min={1000}
         renderTooltip={(val) => "$" + val.toLocaleString("en-US")}

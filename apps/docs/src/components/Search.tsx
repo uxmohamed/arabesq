@@ -16,6 +16,7 @@ import { Button, Kbd, type KbdKey } from "@lemonsqueezy/wedges";
 import { createPortal } from "react-dom";
 
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 import { useSidebar } from "./Providers";
 
@@ -54,6 +55,7 @@ const Search = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props
   const { className, ...otherProps } = props;
   const { isSearchOpen, toggleSearch } = useSidebar();
   const [modifierKey, setModifierKey] = useState<KbdKey>("command");
+  const { t } = useTranslation();
 
   useDocSearchKeyboardEvents({ isOpen: isSearchOpen, onOpen: toggleSearch, onClose: toggleSearch });
 
@@ -75,8 +77,8 @@ const Search = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props
       >
         <button>
           <span className="duration-180 flex items-center gap-1.5 text-surface-400 transition-colors group-hover:text-surface-500">
-            <SearchIcon aria-label="Quick search" className="h-5 w-5" />
-            <span className="hidden md:block">Quick search&hellip;</span>
+            <SearchIcon aria-label={t("search.quickSearch", "Quick search")} className="h-5 w-5" />
+            <span className="hidden md:block">{t("search.quickSearchEllipsis", "Quick search…")}</span>
           </span>
 
           <Kbd
@@ -137,6 +139,7 @@ const Search = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props
 
 function SearchButton() {
   const { toggleSearch } = useSidebar();
+  const { t } = useTranslation();
 
   return (
     <Button
@@ -146,7 +149,7 @@ function SearchButton() {
       variant="transparent"
       onClick={toggleSearch}
     >
-      Search
+      {t("search.search", "Search")}
     </Button>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import "@/lib/i18n";
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 type SidebarProps = {
